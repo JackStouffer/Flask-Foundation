@@ -1,6 +1,11 @@
 ==========
 bootstrapy
 ==========
+.. image:: https://badge.fury.io/py/bootstrapy.png
+    :target: http://badge.fury.io/py/bootstrapy
+
+.. image:: https://travis-ci.org/kirang89/bootstrapy.png?branch=master
+    :target: https://travis-ci.org/kirang89/bootstrapy
 
 A bootstrap application that takes away the pain of setting up a python application for production and lets you focus on coding instead.
 
@@ -25,6 +30,8 @@ Usage
       production  run test suite and do a release
       release     package and upload a release
       sdist       package
+
+**Note**: Make sure to change bootstrapy to your project name before uploading it to Github and PyPi.
 
 Setup Notes
 -----------
