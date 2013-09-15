@@ -1,59 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>WTForm Example</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
+{% extends "base.html" %}
 
-        {% assets "common_css" %}
-            <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
-        {% endassets %}
-    </head>
+{% block title %}WTForms Example{% endblock %}
 
-    <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Appname</a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('.home') }}">Home</a></li>
-                    <li class="active"><a href="{{ url_for('.wtform') }}">WTForms Example</a></li>
-                </ul>
-            </div><!--/.nav-collapse -->
+{% block body %}
+    <form role="form" action="{{ url_for('.wtform') }}" method="post">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            <label for="user_name">User Name *</label>
+            {{ form.user_name(class_="form-control") }}
         </div>
-
-        <div class="container">
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ category }}">{{ message }}</div>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-
-            <form role="form" action="{{ url_for('.wtform') }}" method="post">
-                {{ form.csrf_token }}
-                <div class="form-group">
-                    <label for="user_name">User Name *</label>
-                    {{ form.user_name(class_="form-control") }}
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    {{ form.message(class_="form-control") }}
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+        <div class="form-group">
+            <label for="message">Message</label>
+            {{ form.message(class_="form-control") }}
         </div>
-    {% assets "common_js" %}
-        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-    {% endassets %}
-    </body>
-</html>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

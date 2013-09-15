@@ -28,7 +28,6 @@ What Is Not Included
 --------------------
 
 * A WSGI setup. This is largely based off of ones individual production setup, so it is not included.
-* A Redis or a Memcached setup for Flask-Cache.
 * A database migration tool, like South. This is not included due to the fact that for 99.9% of people this is overkill.
 * A database backend for SQLAlchemy. SQLAlchemy does not come with a way to connect to the database and must be provided. These backends can be found on the SQLAlchemy documentation.
 * A admin interface tool. Some like the library Flask-Admin, others want to build their own. I don't include it because I believe that it is no where close to being as customizable as it should be.

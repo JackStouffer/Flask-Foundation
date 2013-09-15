@@ -12,8 +12,8 @@ import assets
 
 app = Flask(__name__)
 
-# Import the config for the proper environment
-env = os.environ.get('EXAMPLE_ENV', 'prod')
+# Import the config for the proper environment using the shell var APPNAME_ENV
+env = os.environ.get('APPNAME_ENV', 'prod')
 app.config.from_object('appname.settings.%sConfig' % env.capitalize())
 app.config['ENV'] = env
 
