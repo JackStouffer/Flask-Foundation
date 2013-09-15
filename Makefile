@@ -6,11 +6,6 @@ help:
 	@echo "  clean       remove unwanted stuff"
 	@echo "  lint        check style with flake8"
 	@echo "  test        run all your tests using nose"
-	@echo "  production  run test suite and do a release"
-	@echo "  release     package and upload a release"
-	@echo "  sdist       package"
-
-production: clean test release
 
 env:
 	sudo easy_install pip && \
@@ -20,7 +15,7 @@ env:
 	make deps
 
 deps:
-	pip install -r requirements.txt --use-mirrors
+	pip install -r requirements.txt
 
 clean:
 	rm -fr build \
@@ -30,16 +25,7 @@ clean:
 	find . -name '*~' -exec rm -f {}
 
 lint:
-	flake8 mypackage > violations.flake8.txt
+	flake8 appname
 
 test:
 	nosetests
-
-release: register
-	python setup.py sdist upload
-
-register:
-	python setup.py register
-
-sdist:
-	python setup.py sdist
