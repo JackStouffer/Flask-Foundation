@@ -3,6 +3,8 @@ Flask Foundation
 
 Flask Foundation is a solid foundation for flask applications, built with best practices, that you can easily construct your website/webapp off of.
 
+Built off of the [bootstrapy project](https://github.com/kirang89/bootstrapy)
+
 What Is Included
 ----------------
 
@@ -36,4 +38,7 @@ So for example, if I wanted to check my app for PEP8 errors, I would type
 make lint
 ```
 
-Built off of the [bootstrapy project](https://github.com/kirang89/bootstrapy)
+Licenses
+--------
+
+The original bootstrapy project is licensed under the BSD license, The added code of Flask Foundation is under the MIT license. 
