@@ -11,6 +11,7 @@ What Is Included
 * An awesome management script
 * Bootstrap is included but easily replaceable
 * Some nice typographic defaults, also easily replaceable
+* Tests through nose
 * Sphinx: Helps you create some awesome docs for your users, or your internal team
 * Flask-DebugToolbar: A helpful toolbar that is enabled when debug = true. Based of django debugtoolbar
 * Flask-Assets: A library that packages css and js files and applies filter to them like the closure complier
