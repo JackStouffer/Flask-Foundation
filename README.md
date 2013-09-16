@@ -10,12 +10,12 @@ Best practices were learned from [Creating Websites With Flask](http://maximebf.
 What Is Included
 ----------------
 
-* Best Practices setup with blueprints and SQLAlchemy models that will allow you to grow
+* Best Practices setup with blueprints and SQLAlchemy models that will allow you to grow cleanly
 * A helpful makefile
 * An awesome management script
-* Bootstrap is included but easily replaceable
-* Some nice typographic defaults, also easily replaceable
-* Tests through nose
+* [Bootstrap](http://getbootstrap.com/) is included but easily replaceable
+* [Typeplate](http://typeplate.com/): some nice typographic defaults, also easily replaceable
+* [Nose](https://nose.readthedocs.org/en/latest/) tests
 * [Sphinx](http://sphinx-doc.org/): Helps you create some awesome docs for your users, or your internal team
 * [Flask-DebugToolbar](http://flask-debugtoolbar.readthedocs.org/en/latest/): A helpful toolbar that is enabled when debug = true. Based of django debugtoolbar
 * [Flask-Assets](http://flask-assets.readthedocs.org/en/latest/): A library that packages css and js files and applies filters to them like the closure complier
@@ -62,7 +62,7 @@ Tests are done through nose, and reside in the tests directory. To run the tests
 
 You can check you PEP8 compliance by typing "make lint".
 
-Documentation for your project can be created with Sphinx in the docs directory. For more information, refer to the Sphinx documentation.
+Documentation for your project can be created with Sphinx in the docs directory. For more information, refer to the [Sphinx documentation](http://sphinx-doc.org/).
 
 ###The Management File
 
@@ -74,7 +74,7 @@ Simply type
 
 and you will get a list of commands that you can use to manage the project. For example, to run the server, use "./manage.py runserver" and if the installation when well, you should have a working server on http://localhost:5000
 
-This management script was created with Flask-Script and is fairly easy to add your own commands, simply refer to their docs.
+This management script was created with Flask-Script and is fairly easy to add your own commands, simply refer to their [docs](http://flask-script.readthedocs.org/en/latest/).
 
 ###The Flask Application Structure
 
@@ -86,13 +86,13 @@ grep -R appname *
 
 To make things organized, this project is in a pseudo MVC setup. With the controllers as flask blueprints, the models as SQLAlchemy models, and the views as the templates.
 
-The main logic of the app is in the \_\_init\_\_.py. This is done so that the app is treated as a module by python which helps later when importing things. Here, we setup all of the thrid party libs and load in our configuration. Most of the library initialization is self explanatory, but let me explain the config loading. In your shell's startup script (if you are using bash, its .bash_profile), you must enter this line:
+The main logic of the app is in the \_\_init\_\_.py. This is done so that the app is treated as a module by python which helps later when importing things. Here, we setup all of the third party libs and load in our configuration. Most of the library initialization is self explanatory, but let me explain the configuration loading. In your shell's startup script (if you are using bash, its .bash_profile), you must enter this line:
 
 ```
 APPNAME\_ENV = 'dev' or APPNAME_ENV='prod'
 ```
 
-This tells the app on line 16 which class, located in settings.py, to load in for the configuration. To see the different configs, take a look at the settings.py file.
+This tells the app on line 16 which class, located in settings.py, to load in for the configuration. To see the different configs, take a look at the settings.py file. This is explained more in depth in the flask docs [here](http://flask.pocoo.org/docs/config/#development-production).
 
 After everything is initialized, the app loads in the main blueprint from the controllers file. If you don't know how flask blueprints work, check out [this](http://flask.pocoo.org/docs/blueprints/) page in the flask documentation. The controllers/main.py file is where we have our current example logic, with a homepage and a example WTForms page. 
 

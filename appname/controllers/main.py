@@ -4,6 +4,7 @@ from wtforms import TextField, TextAreaField
 from wtforms import validators
 
 from appname import cache
+from appname.models import *
 
 main = Blueprint('main', __name__)
 

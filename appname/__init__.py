@@ -19,7 +19,6 @@ app.config['ENV'] = env
 
 # Setup and import SQLAlchemy and the created models
 db = SQLAlchemy(app)
-from models import *
 
 # Setup flask cache
 cache = Cache(app)
