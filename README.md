@@ -87,7 +87,7 @@ To make things organized, this project is in a pseudo MVC setup. With the contro
 The main logic of the app is in the \_\_init\_\_.py. This is done so that the app is treated as a module by python which helps later when importing things. Here, we setup all of the third party libs and load in our configuration in an application factory, which is a function that creates and returns an instance of our app. This is done for easier testing purposes an modularity. The function create\_app takes the path of the config file that you want to use and the type of environment that the server is running in. Most of the library initialization is self explanatory, but let me explain the configuration loading. In your shell's startup script (if you are using bash, its .bash_profile), you must enter this line:
 
 ```
-APPNAME\_ENV = 'dev' or APPNAME_ENV='prod'
+APPNAME_ENV = 'dev' or APPNAME_ENV='prod'
 ```
 
 This tells the app which class, located in settings.py, to load in for the configuration. To see the different configs, take a look at the settings.py file. This is explained more in depth in the flask docs [here](http://flask.pocoo.org/docs/config/#development-production).
