@@ -1,5 +1,6 @@
 Flask Foundation
 ================
+[![Build Status](https://travis-ci.org/JackStouffer/flask-foundation.png)](https://travis-ci.org/JackStouffer/flask-foundation)
 
 Flask Foundation is a solid foundation for flask applications, built with best practices, that you can easily construct your website/webapp off of.
 
