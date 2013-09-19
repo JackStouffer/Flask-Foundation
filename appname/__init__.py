@@ -29,6 +29,7 @@ def create_app(object_name, env):
     app = Flask(__name__)
 
     app.config.from_object(object_name)
+    app.config['ENV'] = env
 
     #init the cache
     cache.init_app(app)

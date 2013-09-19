@@ -84,13 +84,13 @@ grep -R appname *
 
 To make things organized, this project is in a pseudo MVC setup. With the controllers as flask blueprints, the models as SQLAlchemy models, and the views as the templates.
 
-The main logic of the app is in the \_\_init\_\_.py. This is done so that the app is treated as a module by python which helps later when importing things. Here, we setup all of the third party libs and load in our configuration. Most of the library initialization is self explanatory, but let me explain the configuration loading. In your shell's startup script (if you are using bash, its .bash_profile), you must enter this line:
+The main logic of the app is in the \_\_init\_\_.py. This is done so that the app is treated as a module by python which helps later when importing things. Here, we setup all of the third party libs and load in our configuration in an application factory, which is a function that creates and returns an instance of our app. This is done for easier testing purposes an modularity. The function create\_app takes the path of the config file that you want to use and the type of environment that the server is running in. Most of the library initialization is self explanatory, but let me explain the configuration loading. In your shell's startup script (if you are using bash, its .bash_profile), you must enter this line:
 
 ```
 APPNAME\_ENV = 'dev' or APPNAME_ENV='prod'
 ```
 
-This tells the app on line 16 which class, located in settings.py, to load in for the configuration. To see the different configs, take a look at the settings.py file. This is explained more in depth in the flask docs [here](http://flask.pocoo.org/docs/config/#development-production).
+This tells the app which class, located in settings.py, to load in for the configuration. To see the different configs, take a look at the settings.py file. This is explained more in depth in the flask docs [here](http://flask.pocoo.org/docs/config/#development-production).
 
 After everything is initialized, the app loads in the main blueprint from the controllers file. If you don't know how flask blueprints work, check out [this](http://flask.pocoo.org/docs/blueprints/) page in the flask documentation. The controllers/main.py file is where we have our current example logic, with a homepage and a example WTForms page. 
 
