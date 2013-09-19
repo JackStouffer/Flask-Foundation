@@ -24,7 +24,7 @@ def home():
 @cache.cached(timeout=1000)
 def wtform():
     form = MyForm()
-    
+
     if request.method == 'GET':
         return render_template('wtform_example.html', form=form)
     elif request.method == 'POST':
@@ -33,4 +33,3 @@ def wtform():
         else:
             flash("There was a problem submitting the form!", 'danger')
         return render_template('wtform_example.html', form=form)
-
