@@ -18,7 +18,6 @@ What Is Included
 * [Typeplate](http://typeplate.com/): some nice typographic defaults, also easily replaceable
 * [Nose](https://nose.readthedocs.org/en/latest/) tests
 * [Sphinx](http://sphinx-doc.org/): Helps you create some awesome docs for your users, or your internal team
-* [Flask-DebugToolbar](http://flask-debugtoolbar.readthedocs.org/en/latest/): A helpful toolbar that is enabled when debug = true. Based of django debugtoolbar
 * [Flask-Assets](http://flask-assets.readthedocs.org/en/latest/): A library that packages css and js files and applies filters to them like the closure complier
 * [Flask-Cache](http://pythonhosted.org/Flask-Cache/): A simple library that adds the ability to cache specified views
 * [Flask-SQLAlchemy](http://pythonhosted.org/Flask-SQLAlchemy/): Flask integration with SQLAlchemy
@@ -38,8 +37,6 @@ What Is Not Included
 
 Usage
 -----
-
-This section will explain the overall project structure.
 
 ###The Makefile
 

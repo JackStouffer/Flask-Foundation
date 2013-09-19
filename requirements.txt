@@ -1,7 +1,6 @@
 Flask==0.10.1
 Flask-Assets==0.8
 Flask-Cache==0.12
-Flask-DebugToolbar==0.8.0
 Flask-SQLAlchemy==1.0
 Flask-Script==0.6.2
 Flask-WTF==0.9.2
