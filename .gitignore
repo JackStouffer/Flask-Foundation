@@ -34,3 +34,4 @@ env
 env*
 
 .webassets-cache
+*.sublime-*
