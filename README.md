@@ -52,9 +52,9 @@ lint        check style with flake8
 test        run all your tests using nose
 ```
 
-If you are ever confused about what each command does, take a look at the makefile, it is very strait forward.
+If you are ever confused about what each command does, take a look at the makefile, it is very straight forward.
 
-So to setup the dev environment, lets type "make env". This will install virtualenv if you don't have it and setup a local python instance. Then it installs all of the needed libs from the requirements.txt file. Now we have our setup with all of the needed 3rd party libs.
+So to setup the dev environment, let's type "make env". This will install virtualenv if you don't have it and setup a local python instance. Then it installs all of the needed libs from the requirements.txt file. Now we have our setup with all of the needed 3rd party libs.
 
 Tests are done through nose, and reside in the tests directory. To run the tests, just type "make test".
 
@@ -76,7 +76,7 @@ This management script was created with Flask-Script and is fairly easy to add y
 
 ###The Flask Application Structure
 
-The flask app itself lives in the appname dir, obviously, you change this to the name of your app. Once you do though, you must go through and fix all of the imports where it uses the appname name. The easiest way to find them all is to type
+The flask app itself lives in the appname dir. Obviously, you change this to the name of your app. Once you do though, you must go through and fix all of the imports where it uses the appname name. The easiest way to find them all is to type
 
 ```
 grep -R appname *
@@ -84,7 +84,7 @@ grep -R appname *
 
 To make things organized, this project is in a pseudo MVC setup. With the controllers as flask blueprints, the models as SQLAlchemy models, and the views as the templates.
 
-The main logic of the app is in the \_\_init\_\_.py. This is done so that the app is treated as a module by python which helps later when importing things. Here, we setup all of the third party libs and load in our configuration in an application factory, which is a function that creates and returns an instance of our app. This is done for easier testing purposes an modularity. The function create\_app takes the path of the config file that you want to use and the type of environment that the server is running in. Most of the library initialization is self explanatory, but let me explain the configuration loading. In your shell's startup script (if you are using bash, its .bash_profile), you must enter this line:
+The main logic of the app is in the \_\_init\_\_.py. This is done so that the app is treated as a module by python which helps later when importing things. Here, we setup all of the third party libs and load in our configuration in an application factory, which is a function that creates and returns an instance of our app. This is done for easier testing purposes and modularity. The function create\_app takes the path of the config file that you want to use and the type of environment that the server is running in. Most of the library initialization is self explanatory, but let me explain the configuration loading. In your shell's startup script (if you are using bash, its .bash_profile), you must enter this line:
 
 ```
 APPNAME_ENV = 'dev' or APPNAME_ENV='prod'
@@ -96,11 +96,11 @@ After everything is initialized, the app loads in the main blueprint from the co
 
 The templates are stored in the templates dir for the main blueprint. It is encouraged, but not required, that every new blueprint has its own templates dir inside of the main templates dir. 
 
-As you can see, the example code uses bootstrap, you are quite able to rip it out and use your own framework if you wish. 
+As you can see, the example code uses bootstrap. You are quite able to rip it out and use your own framework if you wish. 
 
 All of the templates inherit from the base.html template to avoid repeating yourself and to avoid discrepancies between pages. Also, as you can see in base.html, it is encouraged that you make use of Flask-Assets when ever possible. Using this to your advantage will dramatically speed up load times.
 
-The models in this app are SQLAlchemy models in the modles.py file, an example User model has been provided.
+The models in this app are SQLAlchemy models in the models.py file, an example User model has been provided.
 
 If you are still confused about how this project is structured, I encourage you to read the blog posts listed at the top of the README file.
 
