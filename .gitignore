@@ -25,6 +25,7 @@ violations.flake8.txt
 .coverage
 .tox
 nosetests.xml
+__pycache__
 
 # Sphinx
 docs/_build
