@@ -16,7 +16,7 @@ What Is Included
 * An awesome management script
 * [Bootstrap](http://getbootstrap.com/) is included but easily replaceable
 * [Typeplate](http://typeplate.com/): some nice typographic defaults, also easily replaceable
-* [Nose](https://nose.readthedocs.org/en/latest/) tests
+* [py.test](http://pytest.org/latest/) tests
 * [Sphinx](http://sphinx-doc.org/): Helps you create some awesome docs for your users, or your internal team
 * [Flask-Assets](http://flask-assets.readthedocs.org/en/latest/): A library that packages css and js files and applies filters to them like the closure complier
 * [Flask-Cache](http://pythonhosted.org/Flask-Cache/): A simple library that adds the ability to cache specified views
@@ -49,14 +49,14 @@ env         create a development environment using virtualenv
 deps        install dependencies
 clean       remove unwanted stuff
 lint        check style with flake8
-test        run all your tests using nose
+test        run all your tests using py.test
 ```
 
 If you are ever confused about what each command does, take a look at the makefile, it is very straight forward.
 
 So to setup the dev environment, let's type "make env". This will install virtualenv if you don't have it and setup a local python instance. Then it installs all of the needed libs from the requirements.txt file. Now we have our setup with all of the needed 3rd party libs.
 
-Tests are done through nose, and reside in the tests directory. To run the tests, just type "make test".
+Tests are done through py.test, and reside in the tests directory. To run the tests, just type "make test".
 
 You can check you PEP8 compliance by typing "make lint".
 
@@ -93,6 +93,8 @@ APPNAME_ENV = 'dev' or APPNAME_ENV='prod'
 This tells the app which class, located in settings.py, to load in for the configuration. To see the different configs, take a look at the settings.py file. This is explained more in depth in the flask docs [here](http://flask.pocoo.org/docs/config/#development-production).
 
 After everything is initialized, the app loads in the main blueprint from the controllers file. If you don't know how flask blueprints work, check out [this](http://flask.pocoo.org/docs/blueprints/) page in the flask documentation. The controllers/main.py file is where we have our current example logic, with a homepage and a example WTForms page. 
+
+WTForm classes are held in a separate file called forms.py and imported when needed.
 
 The templates are stored in the templates dir for the main blueprint. It is encouraged, but not required, that every new blueprint has its own templates dir inside of the main templates dir. 
 
