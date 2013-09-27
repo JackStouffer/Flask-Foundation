@@ -1,17 +1,10 @@
 from flask import Blueprint, render_template, flash, request
-from flask_wtf import Form
-from wtforms import TextField, TextAreaField
-from wtforms import validators
 
 from appname import cache
 from appname.models import *
+from appname.forms import *
 
 main = Blueprint('main', __name__)
-
-
-class MyForm(Form):
-    user_name = TextField(u'First Name', validators=[validators.required()])
-    message = TextAreaField(u'message', validators=[validators.optional()])
 
 
 @main.route('/')
@@ -21,7 +14,6 @@ def home():
 
 
 @main.route('/wtform', methods=['GET', 'POST'])
-@cache.cached(timeout=1000)
 def wtform():
     form = MyForm()
 
