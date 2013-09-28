@@ -118,12 +118,16 @@ The models in this application are SQLAlchemy models in the models.py file, an e
 
 If you are still confused about how this project is structured, I encourage you to read the blog posts listed at the top of the README file.
 
+Need help implementing some common features like user login or ajax? For a full blown tutorial covering almost every flask topic that you can think of, I recommend [The Flask Mega-Tutorial](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world).
+
 Lets talk about the tests. All of the tests are in the test_appname.py file, and the tests are run with py.test. Nothing is to fancy in the first test class, but in the next one we see some special initialization with the database, this is due to flask not actually running and Flask-SQLAlechmy not being initialized properly. Also, we see here the use of app.test\_client(), which means we can use functions to send GET and POST requests from our tests. This is how we test our forms and if the urls are returning correctly.
+
+Sending post and get requests is all well and good, but if you want to get really advanced, check out [webtest](http://webtest.pythonpaste.org/en/latest/).
 
 ##Production
 First off, it is very, very important that if you ever open source a flask application based upon this, to not include the settings.py file in your repo. Obviously, your database password is in it, but your secret key as well, which is used to cryptographically sign all of flask's session data.
 
-When going into production there are several things that you should do. First, look at your options for deploying on an actual server [here](http://flask.pocoo.org/docs/deploying/). Using the flask development server is NOT recommended for production for several good reasons. Deploying to the server manually is tedious, so you might want to look into deploying with [fabric](http://flask.pocoo.org/docs/patterns/fabric/) or [distributee](http://flask.pocoo.org/docs/patterns/distribute/#distribute-deployment). This isn't php, so logging errors doesn't come out of the box, [here](http://flask.pocoo.org/docs/errorhandling/) is a great resource on the subject. Also, there are several awesome plug-ins available for flask, they can be found on the flask website [here](http://flask.pocoo.org/extensions/), or just searching "flask" on github.
+When going into production there are several things that you should do. First, look at your options for deploying on an actual server [here](http://flask.pocoo.org/docs/deploying/). Using the flask development server is NOT recommended for production for several good reasons. Deploying to the server manually is tedious, so you might want to look into deploying with [fabric](http://flask.pocoo.org/docs/patterns/fabric/) or [distribute](http://flask.pocoo.org/docs/patterns/distribute/#distribute-deployment). This isn't php, so logging errors doesn't come out of the box, [here](http://flask.pocoo.org/docs/errorhandling/) is a great resource on the subject. Also, there are several awesome plug-ins available for flask that add in functionality that you might need for your application, they can be found on the flask website [here](http://flask.pocoo.org/extensions/), or just searching "flask" on github.
 
 ##Licenses
 The original bootstrapy project and the added code from this project are licensed under the BSD license.
