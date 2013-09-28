@@ -120,7 +120,11 @@ If you are still confused about how this project is structured, I encourage you 
 
 Need help implementing some common features like user login or ajax? For a full blown tutorial covering almost every flask topic that you can think of, I recommend [The Flask Mega-Tutorial](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world).
 
-Lets talk about the tests. All of the tests are in the test_appname.py file, and the tests are run with py.test. Nothing is to fancy in the first test class, but in the next one we see some special initialization with the database, this is due to flask not actually running and Flask-SQLAlechmy not being initialized properly. Also, we see here the use of app.test\_client(), which means we can use functions to send GET and POST requests from our tests. This is how we test our forms and if the urls are returning correctly.
+Lets talk about the tests. All of the tests are in the tests/ directory, and the tests are run with py.test. Nothing is to fancy in the test_config.py tests, but in the rest we see some special initialization with the database, this is due to flask not actually running and Flask-SQLAlechmy not being initialized properly, so we pass in the app using 
+
+    db.app = app
+
+Also, we see here the use of app.test\_client(), which means we can use functions to send GET and POST requests from our tests. This is how we test our forms and if the urls are returning correctly.
 
 Sending post and get requests is all well and good, but if you want to get really advanced, check out [webtest](http://webtest.pythonpaste.org/en/latest/).
 
