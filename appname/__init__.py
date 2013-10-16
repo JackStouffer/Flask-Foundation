@@ -16,7 +16,7 @@ cache = Cache()
 assets_env = Environment()
 
 
-def create_app(object_name, env):
+def create_app(object_name, env="prod"):
     """
     An flask application factory, as explained here:
     http://flask.pocoo.org/docs/patterns/appfactories/
@@ -55,6 +55,6 @@ if __name__ == '__main__':
     # Import the config for the proper environment using the
     # shell var APPNAME_ENV
     env = os.environ.get('APPNAME_ENV', 'prod')
-    app = create_app('appname.settings.%sConfig' % env.capitalize(), env)
+    app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
 
     app.run()

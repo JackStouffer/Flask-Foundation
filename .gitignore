@@ -26,6 +26,7 @@ violations.flake8.txt
 .tox
 nosetests.xml
 __pycache__
+database.db
 
 # Sphinx
 docs/_build
