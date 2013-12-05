@@ -24,6 +24,15 @@ class TestForm:
         assert rv.status_code == 200
         assert 'There was a problem submitting the form!' in rv.data
 
+    def test_user_form_message(self):
+        rv = self.app.post('/wtform', data=dict(
+            user_name="",
+            message="test message"
+        ), follow_redirects=True)
+
+        assert rv.status_code == 200
+        assert 'There was a problem submitting the form!' in rv.data
+
     def test_user_form_name(self):
         rv = self.app.post('/wtform', data=dict(
             user_name="admin",

@@ -12,6 +12,7 @@ Best practices were learned from [Creating Websites With Flask](http://maximebf.
 * Best Practices setup with blueprints and SQLAlchemy models that will allow you to grow cleanly
 * A helpful makefile
 * An awesome management script
+* [Modernizr](http://modernizr.com/): "Modernizr makes it easy for you to write conditional JavaScript and CSS to handle each situation, whether a browser supports a feature or not."
 * [Bootstrap](http://getbootstrap.com/) is included but easily replaceable
 * [Typeplate](http://typeplate.com/): some nice typographic defaults, also easily replaceable
 * [py.test](http://pytest.org/latest/) tests

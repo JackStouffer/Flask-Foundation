@@ -2,10 +2,12 @@ from flask_assets import Bundle
 
 common_css = Bundle(
     'css/vendor/bootstrap.min.css',
-    'css/styles.css',
+    'css/vendor/typelate.css',
+    'css/vendor/helper.css',
+    'css/main.css',
     filters='cssmin',
     output='public/css/common.css'
-    )
+)
 
 common_js = Bundle(
     'js/vendor/jquery.min.js',
@@ -15,4 +17,4 @@ common_js = Bundle(
         filters='jsmin'
     ),
     output='public/js/common.js'
-    )
+)
