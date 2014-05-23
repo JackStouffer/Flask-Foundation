@@ -5,7 +5,10 @@ Flask Foundation is a solid foundation for flask applications, built with best p
 
 Built off of the [bootstrapy project](https://github.com/kirang89/bootstrapy)
 
-Best practices were learned from [Creating Websites With Flask](http://maximebf.com/blog/2012/10/building-websites-in-python-with-flask/) and [Getting Bigger With Flask](http://maximebf.com/blog/2012/11/getting-bigger-with-flask/), and most importantly [Larger Applications With Flask](http://flask.pocoo.org/docs/patterns/packages/).
+Best practices were learned from
+* [Creating Websites With Flask](http://maximebf.com/blog/2012/10/building-websites-in-python-with-flask/)
+* [Getting Bigger With Flask](http://maximebf.com/blog/2012/11/getting-bigger-with-flask/)
+* [Larger Applications With Flask](http://flask.pocoo.org/docs/patterns/packages/).
 
 ##What Is Included
 
@@ -25,17 +28,19 @@ Best practices were learned from [Creating Websites With Flask](http://maximebf.
 
 ##What Is Not Included
 
-* A WSGI setup. This is largely based off of ones individual production setup, so it is not included.
+Some items which you may need for your setup but are not included to keep this framework agnostic
+
+* A WSGI setup.
 * A Redis or a Memcached setup for Flask-Cache.
-* A database migration tool, like South. This is not included due to the fact that for 99.9% of people this is overkill.
-* A database backend for SQLAlchemy. SQLAlchemy does not come with a way to connect to the database and must be provided. These backends can be found on the SQLAlchemy documentation.
-* A admin interface tool. Some like the library Flask-Admin, others want to build their own. I don't include it because I believe that it is no where close to being as customizable as it should be.
-* A publishing tool like fabric. Which tool you use is totally up to your personal preference as well as your production environment, which is why it is not included.
-* A vagrant setup. For most people vagrant is overkill, but the vagrant setup is entirely based of off your production setup so it is not included here.
+* A database migration tool
+* A database backend for SQLAlchemy
+* A admin interface tool
+* A publishing tool like fabric
+* A vagrant setup
 
-##Usage
+##Usage And Structure
 
-###The Makefile
+###Using Make To Setup Our Environment
 
 First, lets use the included make file to setup our dev environment. To see all of the available commands, just type make.
 
@@ -65,7 +70,7 @@ You can check you PEP8 compliance by typing
 
 Documentation for your project can be created with Sphinx in the docs directory. For more information, refer to the [Sphinx documentation](http://sphinx-doc.org/).
 
-###The Management File
+###Using The Flask Script File To Run The Development Server
 
 Simply type
 
@@ -79,11 +84,11 @@ and if the installation when well, you should have a working server on http://lo
 
 This management script was created with Flask-Script and is fairly easy to add your own commands, simply refer to their [docs](http://flask-script.readthedocs.org/en/latest/).
 
-###The Flask Application Structure
+###The Application Structure
 
 Before going to far into this, you should at least skim the documentation of all of the thrid party libraries listed above so you have a better understanding of what is going on here.
 
-The flask application itself lives in the appname directory. Obviously, you change this to the name of your application. Once you do though, you must go through and fix all of the imports where it uses the appname name. The easiest way to find them all is to type
+The flask application itself lives in the appname directory. Obviously, you should change this to the name of your application. Once you do though, you must go through and fix all of the imports where it uses the appname name. The easiest way to find them all is to type
 
     grep -R appname *
 
@@ -91,7 +96,11 @@ To make things organized, this project is in a pseudo MVC setup. With the contro
 
 The main logic of the application is in the \_\_init\_\_.py. This is done so that the application is treated as a module by python which helps later when importing things. Here, we setup all of the third party libs and load in our configuration in an application factory, which is a function that creates and returns an instance of our application. This is done for easier testing purposes and modularity. The function create\_app takes the path of the config file that you want to use and the type of environment that the server is running in. Most of the library initialization is self explanatory, but let me explain the configuration loading. In your shell's startup script (if you are using bash, its .bash_profile), you must enter this line:
 
-    APPNAME_ENV = 'dev' or APPNAME_ENV='prod'
+    APPNAME_ENV = 'dev' 
+
+or
+
+    APPNAME_ENV = 'prod'
 
 This tells the application which class, located in settings.py, to load in for the configuration. To see the different configs, take a look at the settings.py file. This is explained more in depth in the flask docs [here](http://flask.pocoo.org/docs/config/#development-production).
 
@@ -121,7 +130,13 @@ If you are still confused about how this project is structured, I encourage you 
 
 Need help implementing some common features like user login or ajax? For a full blown tutorial covering almost every flask topic that you can think of, I recommend [The Flask Mega-Tutorial](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world).
 
-Lets talk about the tests. All of the tests are in the tests/ directory, and the tests are run with py.test. Nothing is to fancy in the test_config.py tests, but in the rest we see some special initialization with the database, this is due to flask not actually running and Flask-SQLAlechmy not being initialized properly, so we pass in the app using 
+### Testing
+
+To run your tests use the provided make command:
+
+    make test
+
+The tests are located in the tests/ directory, and the tests are run with py.test. Nothing is too fancy in the test_config.py tests, but in the rest we see some special initialization with the database, this is due to flask not actually running and Flask-SQLAlechmy not being initialized properly, so we pass in the app using 
 
     db.app = app
 
@@ -130,9 +145,19 @@ Also, we see here the use of app.test\_client(), which means we can use function
 Sending post and get requests is all well and good, but if you want to get really advanced, check out [webtest](http://webtest.pythonpaste.org/en/latest/).
 
 ##Production
+
 First off, it is very, very important that if you ever open source a flask application based upon this, to not include the settings.py file in your repo. Obviously, your database password is in it, but your secret key as well, which is used to cryptographically sign all of flask's session data.
 
-When going into production there are several things that you should do. First, look at your options for deploying on an actual server [here](http://flask.pocoo.org/docs/deploying/). Using the flask development server is NOT recommended for production for several good reasons. Deploying to the server manually is tedious, so you might want to look into deploying with [fabric](http://flask.pocoo.org/docs/patterns/fabric/) or [distribute](http://flask.pocoo.org/docs/patterns/distribute/#distribute-deployment). This isn't php, so logging errors doesn't come out of the box, [here](http://flask.pocoo.org/docs/errorhandling/) is a great resource on the subject. Also, there are several awesome plug-ins available for flask that add in functionality that you might need for your application, they can be found on the flask website [here](http://flask.pocoo.org/extensions/), or just searching "flask" on github.
+When going into production there are several things that you should do. First, look at your options for deploying on an actual server [here](http://flask.pocoo.org/docs/deploying/). 
+
+Using the flask development server is NOT recommended for production for several good reasons, including the ability for anyone who can touch it to run arbitrary python on the server. 
+
+Deploying to the server manually is tedious, so you might want to look into deploying with [fabric](http://flask.pocoo.org/docs/patterns/fabric/) or [distribute](http://flask.pocoo.org/docs/patterns/distribute/#distribute-deployment). 
+
+This isn't php, so logging errors doesn't come out of the box, [here](http://flask.pocoo.org/docs/errorhandling/) is a great resource on the subject. 
+
+Also, there are several awesome plug-ins available for flask that add in functionality that you might need for your application, they can be found on the flask website [here](http://flask.pocoo.org/extensions/), or just searching "flask" on github.
 
 ##Licenses
+
 The original bootstrapy project and the added code from this project are licensed under the BSD license.
