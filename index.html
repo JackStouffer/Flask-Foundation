@@ -7,38 +7,37 @@
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
+    <script src="javascripts/respond.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
   </head>
   <body>
-
-      <header>
-        <h1>Flask-foundation</h1>
-        <p>A solid foundation for your flask app</p>
-      </header>
-
-      <div id="banner">
-        <span id="logo"></span>
-
-        <a href="https://github.com/JackStouffer/Flask-Foundation" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/JackStouffer/Flask-Foundation/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/JackStouffer/Flask-Foundation/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/JackStouffer/Flask-Foundation">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/JackStouffer/Flask-Foundation/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/JackStouffer/Flask-Foundation/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
     <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
+
       <section>
+        <div id="title">
+          <h1>Flask-foundation</h1>
+          <p>A solid foundation for your flask app</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/JackStouffer">JackStouffer</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
         <h1>
 <a name="flask-foundation" class="anchor" href="#flask-foundation"><span class="octicon octicon-link"></span></a>Flask Foundation</h1>
 
@@ -48,9 +47,14 @@
 
 <p>Built off of the <a href="https://github.com/kirang89/bootstrapy">bootstrapy project</a></p>
 
-<p>Best practices were learned from <a href="http://maximebf.com/blog/2012/10/building-websites-in-python-with-flask/">Creating Websites With Flask</a> and <a href="http://maximebf.com/blog/2012/11/getting-bigger-with-flask/">Getting Bigger With Flask</a>, and most importantly <a href="http://flask.pocoo.org/docs/patterns/packages/">Larger Applications With Flask</a>.</p>
+<p>Best practices were learned from</p>
 
-<h2>
+<ul>
+<li><a href="http://maximebf.com/blog/2012/10/building-websites-in-python-with-flask/">Creating Websites With Flask</a></li>
+<li><a href="http://maximebf.com/blog/2012/11/getting-bigger-with-flask/">Getting Bigger With Flask</a></li>
+<li>
+<a href="http://flask.pocoo.org/docs/patterns/packages/">Larger Applications With Flask</a>.</li>
+</ul><h2>
 <a name="what-is-included" class="anchor" href="#what-is-included"><span class="octicon octicon-link"></span></a>What Is Included</h2>
 
 <ul>
@@ -80,19 +84,21 @@
 </ul><h2>
 <a name="what-is-not-included" class="anchor" href="#what-is-not-included"><span class="octicon octicon-link"></span></a>What Is Not Included</h2>
 
+<p>Some items which you may need for your setup but are not included to keep this framework agnostic</p>
+
 <ul>
-<li>A WSGI setup. This is largely based off of ones individual production setup, so it is not included.</li>
+<li>A WSGI setup.</li>
 <li>A Redis or a Memcached setup for Flask-Cache.</li>
-<li>A database migration tool, like South. This is not included due to the fact that for 99.9% of people this is overkill.</li>
-<li>A database backend for SQLAlchemy. SQLAlchemy does not come with a way to connect to the database and must be provided. These backends can be found on the SQLAlchemy documentation.</li>
-<li>A admin interface tool. Some like the library Flask-Admin, others want to build their own. I don't include it because I believe that it is no where close to being as customizable as it should be.</li>
-<li>A publishing tool like fabric. Which tool you use is totally up to your personal preference as well as your production environment, which is why it is not included.</li>
-<li>A vagrant setup. For most people vagrant is overkill, but the vagrant setup is entirely based of off your production setup so it is not included here.</li>
+<li>A database migration tool</li>
+<li>A database backend for SQLAlchemy</li>
+<li>A admin interface tool</li>
+<li>A publishing tool like fabric</li>
+<li>A vagrant setup</li>
 </ul><h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a name="usage-and-structure" class="anchor" href="#usage-and-structure"><span class="octicon octicon-link"></span></a>Usage And Structure</h2>
 
 <h3>
-<a name="the-makefile" class="anchor" href="#the-makefile"><span class="octicon octicon-link"></span></a>The Makefile</h3>
+<a name="using-make-to-setup-our-environment" class="anchor" href="#using-make-to-setup-our-environment"><span class="octicon octicon-link"></span></a>Using Make To Setup Our Environment</h3>
 
 <p>First, lets use the included make file to setup our dev environment. To see all of the available commands, just type make.</p>
 
@@ -127,7 +133,7 @@ test        run all your tests using py.test
 <p>Documentation for your project can be created with Sphinx in the docs directory. For more information, refer to the <a href="http://sphinx-doc.org/">Sphinx documentation</a>.</p>
 
 <h3>
-<a name="the-management-file" class="anchor" href="#the-management-file"><span class="octicon octicon-link"></span></a>The Management File</h3>
+<a name="using-the-flask-script-file-to-run-the-development-server" class="anchor" href="#using-the-flask-script-file-to-run-the-development-server"><span class="octicon octicon-link"></span></a>Using The Flask Script File To Run The Development Server</h3>
 
 <p>Simply type</p>
 
@@ -144,11 +150,11 @@ test        run all your tests using py.test
 <p>This management script was created with Flask-Script and is fairly easy to add your own commands, simply refer to their <a href="http://flask-script.readthedocs.org/en/latest/">docs</a>.</p>
 
 <h3>
-<a name="the-flask-application-structure" class="anchor" href="#the-flask-application-structure"><span class="octicon octicon-link"></span></a>The Flask Application Structure</h3>
+<a name="the-application-structure" class="anchor" href="#the-application-structure"><span class="octicon octicon-link"></span></a>The Application Structure</h3>
 
 <p>Before going to far into this, you should at least skim the documentation of all of the thrid party libraries listed above so you have a better understanding of what is going on here.</p>
 
-<p>The flask application itself lives in the appname directory. Obviously, you change this to the name of your application. Once you do though, you must go through and fix all of the imports where it uses the appname name. The easiest way to find them all is to type</p>
+<p>The flask application itself lives in the appname directory. Obviously, you should change this to the name of your application. Once you do though, you must go through and fix all of the imports where it uses the appname name. The easiest way to find them all is to type</p>
 
 <pre><code>grep -R appname *
 </code></pre>
@@ -157,7 +163,12 @@ test        run all your tests using py.test
 
 <p>The main logic of the application is in the __init__.py. This is done so that the application is treated as a module by python which helps later when importing things. Here, we setup all of the third party libs and load in our configuration in an application factory, which is a function that creates and returns an instance of our application. This is done for easier testing purposes and modularity. The function create_app takes the path of the config file that you want to use and the type of environment that the server is running in. Most of the library initialization is self explanatory, but let me explain the configuration loading. In your shell's startup script (if you are using bash, its .bash_profile), you must enter this line:</p>
 
-<pre><code>APPNAME_ENV = 'dev' or APPNAME_ENV='prod'
+<pre><code>APPNAME_ENV = 'dev' 
+</code></pre>
+
+<p>or</p>
+
+<pre><code>APPNAME_ENV = 'prod'
 </code></pre>
 
 <p>This tells the application which class, located in settings.py, to load in for the configuration. To see the different configs, take a look at the settings.py file. This is explained more in depth in the flask docs <a href="http://flask.pocoo.org/docs/config/#development-production">here</a>.</p>
@@ -190,7 +201,15 @@ def function()
 
 <p>Need help implementing some common features like user login or ajax? For a full blown tutorial covering almost every flask topic that you can think of, I recommend <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">The Flask Mega-Tutorial</a>.</p>
 
-<p>Lets talk about the tests. All of the tests are in the tests/ directory, and the tests are run with py.test. Nothing is to fancy in the test_config.py tests, but in the rest we see some special initialization with the database, this is due to flask not actually running and Flask-SQLAlechmy not being initialized properly, so we pass in the app using </p>
+<h3>
+<a name="testing" class="anchor" href="#testing"><span class="octicon octicon-link"></span></a>Testing</h3>
+
+<p>To run your tests use the provided make command:</p>
+
+<pre><code>make test
+</code></pre>
+
+<p>The tests are located in the tests/ directory, and the tests are run with py.test. Nothing is too fancy in the test_config.py tests, but in the rest we see some special initialization with the database, this is due to flask not actually running and Flask-SQLAlechmy not being initialized properly, so we pass in the app using </p>
 
 <pre><code>db.app = app
 </code></pre>
@@ -204,17 +223,22 @@ def function()
 
 <p>First off, it is very, very important that if you ever open source a flask application based upon this, to not include the settings.py file in your repo. Obviously, your database password is in it, but your secret key as well, which is used to cryptographically sign all of flask's session data.</p>
 
-<p>When going into production there are several things that you should do. First, look at your options for deploying on an actual server <a href="http://flask.pocoo.org/docs/deploying/">here</a>. Using the flask development server is NOT recommended for production for several good reasons. Deploying to the server manually is tedious, so you might want to look into deploying with <a href="http://flask.pocoo.org/docs/patterns/fabric/">fabric</a> or <a href="http://flask.pocoo.org/docs/patterns/distribute/#distribute-deployment">distribute</a>. This isn't php, so logging errors doesn't come out of the box, <a href="http://flask.pocoo.org/docs/errorhandling/">here</a> is a great resource on the subject. Also, there are several awesome plug-ins available for flask that add in functionality that you might need for your application, they can be found on the flask website <a href="http://flask.pocoo.org/extensions/">here</a>, or just searching "flask" on github.</p>
+<p>When going into production there are several things that you should do. First, look at your options for deploying on an actual server <a href="http://flask.pocoo.org/docs/deploying/">here</a>. </p>
+
+<p>Using the flask development server is NOT recommended for production for several good reasons, including the ability for anyone who can touch it to run arbitrary python on the server. </p>
+
+<p>Deploying to the server manually is tedious, so you might want to look into deploying with <a href="http://flask.pocoo.org/docs/patterns/fabric/">fabric</a> or <a href="http://flask.pocoo.org/docs/patterns/distribute/#distribute-deployment">distribute</a>. </p>
+
+<p>This isn't php, so logging errors doesn't come out of the box, <a href="http://flask.pocoo.org/docs/errorhandling/">here</a> is a great resource on the subject. </p>
+
+<p>Also, there are several awesome plug-ins available for flask that add in functionality that you might need for your application, they can be found on the flask website <a href="http://flask.pocoo.org/extensions/">here</a>, or just searching "flask" on github.</p>
 
 <h2>
 <a name="licenses" class="anchor" href="#licenses"><span class="octicon octicon-link"></span></a>Licenses</h2>
 
 <p>The original bootstrapy project and the added code from this project are licensed under the BSD license.</p>
       </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/JackStouffer">JackStouffer</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
-      </footer>
+
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
