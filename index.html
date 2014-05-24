@@ -32,211 +32,216 @@
 
       <section>
         <div id="title">
-          <h1 class="mega">Flask-foundation</h1>
+          <h1 class="mega">Flask Foundation</h1>
           <p>A solid foundation for your flask app</p>
           <hr>
           <span class="credits left">Project maintained by <a href="https://github.com/JackStouffer">JackStouffer</a></span>
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
-        <h2><a name="flask-foundation" class="anchor" href="#flask-foundation"><span class="octicon octicon-link"></span></a>Flask Foundation</h2>
+        <p>Flask Foundation is a solid, production environment agnostic, foundation for flask applications, built with best practices, that you can easily construct your website/webapp off of. While there are many other flask templates out there, far too many are either structured poorly or are tied down to a specific method of deployment, or both. Flask Foundation however, is constructed along community considered best practices and does not assume anything about your production environment.</p>
 
+        <p>Flask Foundation is built off of the <a href="https://github.com/kirang89/bootstrapy">bootstrapy</a> project</p>
 
-<p>Flask Foundation is a solid foundation for flask applications, built with best practices, that you can easily construct your website/webapp off of.</p>
+        <p>Best practices were learned from</p>
 
-<p>Built off of the <a href="https://github.com/kirang89/bootstrapy">bootstrapy project</a></p>
-
-<p>Best practices were learned from</p>
-
-<ul>
-<li><a href="http://maximebf.com/blog/2012/10/building-websites-in-python-with-flask/">Creating Websites With Flask</a></li>
-<li><a href="http://maximebf.com/blog/2012/11/getting-bigger-with-flask/">Getting Bigger With Flask</a></li>
-<li>
-<a href="http://flask.pocoo.org/docs/patterns/packages/">Larger Applications With Flask</a>.</li>
-</ul>
+        <ul>
+          <li><a href="http://maximebf.com/blog/2012/10/building-websites-in-python-with-flask/">Creating Websites With Flask</a></li>
+          <li><a href="http://maximebf.com/blog/2012/11/getting-bigger-with-flask/">Getting Bigger With Flask</a></li>
+          <li><a href="http://flask.pocoo.org/docs/patterns/packages/">Larger Applications With Flask</a>.</li>
+        </ul>
 
         <h2><a name="what-is-included" class="anchor" href="#what-is-included"><span class="octicon octicon-link"></span></a>What Is Included</h2>
 
-<ul>
-<li>Best Practices setup with blueprints and SQLAlchemy models that will allow you to grow cleanly</li>
-<li>A helpful makefile</li>
-<li>An awesome management script</li>
-<li>
-<a href="http://modernizr.com/">Modernizr</a>: "Modernizr makes it easy for you to write conditional JavaScript and CSS to handle each situation, whether a browser supports a feature or not."</li>
-<li>
-<a href="http://getbootstrap.com/">Bootstrap</a> is included but easily replaceable</li>
-<li>
-<a href="http://typeplate.com/">Typeplate</a>: some nice typographic defaults, also easily replaceable</li>
-<li>
-<a href="http://pytest.org/latest/">py.test</a> tests</li>
-<li>
-<a href="http://sphinx-doc.org/">Sphinx</a>: Helps you create some awesome docs for your users, or your internal team</li>
-<li>
-<a href="http://flask-assets.readthedocs.org/en/latest/">Flask-Assets</a>: A library that packages css and js files and applies filters to them like the closure complier</li>
-<li>
-<a href="http://pythonhosted.org/Flask-Cache/">Flask-Cache</a>: A simple library that adds the ability to cache specified views</li>
-<li>
-<a href="http://pythonhosted.org/Flask-SQLAlchemy/">Flask-SQLAlchemy</a>: Flask integration with SQLAlchemy</li>
-<li>
-<a href="http://flask-script.readthedocs.org/en/latest/">Flask-Script</a>: Allows one to create awesome management scripts</li>
-<li>
-<a href="https://flask-wtf.readthedocs.org/en/latest/index.html">Flask-WTF</a>: Integrates WTForms into flask</li>
-</ul><h2>
-<a name="what-is-not-included" class="anchor" href="#what-is-not-included"><span class="octicon octicon-link"></span></a>What Is Not Included</h2>
+        <ul>
+          <li>Best Practices setup with blueprints and SQLAlchemy models that will allow you to grow cleanly</li>
+          <li>A helpful makefile</li>
+          <li>An awesome management script</li>
+          <li>
+            <a href="http://modernizr.com/">Modernizr</a>: "Modernizr makes it easy for you to write conditional JavaScript and CSS to handle each situation, whether a browser supports a feature or not."
+          </li>
+          <li>
+            <a href="http://getbootstrap.com/">Bootstrap</a> is included but easily replaceable
+          </li>
+          <li>
+            <a href="http://typeplate.com/">Typeplate</a>: some nice typographic defaults, also easily replaceable
+          </li>
+          <li>
+            <a href="http://pytest.org/latest/">py.test</a> tests
+          </li>
+          <li>
+            <a href="http://sphinx-doc.org/">Sphinx</a>: Helps you create some awesome docs for your users, or your internal team
+          </li>
+          <li>
+            <a href="http://flask-assets.readthedocs.org/en/latest/">Flask-Assets</a>: A library that packages css and js files and applies filters to them like the closure complier
+          </li>
+          <li>
+            <a href="http://pythonhosted.org/Flask-Cache/">Flask-Cache</a>: A simple library that adds the ability to cache specified views
+          </li>
+          <li>
+            <a href="http://pythonhosted.org/Flask-SQLAlchemy/">Flask-SQLAlchemy</a>: Flask integration with SQLAlchemy
+          </li>
+          <li>
+            <a href="http://flask-script.readthedocs.org/en/latest/">Flask-Script</a>: Allows one to create awesome management scripts
+          </li>
+          <li>
+            <a href="https://flask-wtf.readthedocs.org/en/latest/index.html">Flask-WTF</a>: Integrates WTForms into flask
+          </li>
+        </ul>
 
-<p>Some items which you may need for your setup but are not included to keep this framework agnostic</p>
+        <h2><a name="what-is-not-included" class="anchor" href="#what-is-not-included"><span class="octicon octicon-link"></span></a>What Is Not Included</h2>
 
-<ul>
-<li>A WSGI setup.</li>
-<li>A Redis or a Memcached setup for Flask-Cache.</li>
-<li>A database migration tool</li>
-<li>A database backend for SQLAlchemy</li>
-<li>A admin interface tool</li>
-<li>A publishing tool like fabric</li>
-<li>A vagrant setup</li>
-</ul><h2>
-<a name="usage-and-structure" class="anchor" href="#usage-and-structure"><span class="octicon octicon-link"></span></a>Usage And Structure</h2>
+        <p>Some items which you may need for your setup but are not included to keep this framework agnostic</p>
 
-<h4>
-<a name="using-make-to-setup-our-environment" class="anchor" href="#using-make-to-setup-our-environment"><span class="octicon octicon-link"></span></a>Using Make To Setup Our Environment</h4>
+        <ul>
+          <li>A WSGI setup.</li>
+          <li>A Redis or a Memcached setup for Flask-Cache.</li>
+          <li>A database migration tool</li>
+          <li>A database backend for SQLAlchemy</li>
+          <li>A admin interface tool</li>
+          <li>A publishing tool like fabric</li>
+          <li>A vagrant setup</li>
+        </ul>
 
-<p>First, lets use the included make file to setup our dev environment. To see all of the available commands, just type make.</p>
+        <h2><a name="usage-and-structure" class="anchor" href="#usage-and-structure"><span class="octicon octicon-link"></span></a>Usage And Structure</h2>
 
-<pre><code>$ make
+        <h4><a name="using-make-to-setup-our-environment" class="anchor" href="#using-make-to-setup-our-environment"><span class="octicon octicon-link"></span></a>Using Make To Setup Our Environment</h4>
 
-env         create a development environment using virtualenv
-deps        install dependencies
-clean       remove unwanted stuff
-lint        check style with flake8
-test        run all your tests using py.test
-</code></pre>
+        <p>First, lets use the included make file to setup our dev environment. To see all of the available commands, just type make.</p>
 
-<p>If you are ever confused about what each command does, take a look at the makefile, it is very straight forward.</p>
+        <pre><code>$ make
 
-<p>So to setup the dev environment, let's type </p>
+        env         create a development environment using virtualenv
+        deps        install dependencies
+        clean       remove unwanted stuff
+        lint        check style with flake8
+        test        run all your tests using py.test
+        </code></pre>
 
-<pre><code>$ make env
-</code></pre>
+        <p>If you are ever confused about what each command does, take a look at the makefile, it is very straight forward.</p>
 
-<p>This will install virtualenv if you don't have it and setup a local python instance. Then it installs all of the needed libs from the requirements.txt file. Now we have our setup with all of the needed 3rd party libs.</p>
+        <p>So to setup the dev environment, let's type </p>
 
-<p>Tests are done through py.test, and reside in the tests directory. To run the tests, just type </p>
+        <pre>
+        <code>
+        $ make env
+        </code>
+        </pre>
 
-<pre><code>$ make test
-</code></pre>
+        <p>This will install virtualenv if you don't have it and setup a local python instance. Then it installs all of the needed libs from the requirements.txt file. Now we have our setup with all of the needed 3rd party libs.</p>
 
-<p>You can check you PEP8 compliance by typing </p>
+        <p>Tests are done through py.test, and reside in the tests directory. To run the tests, just type </p>
 
-<pre><code>$ make lint
-</code></pre>
+        <pre><code>$ make test
+        </code></pre>
 
-<p>Documentation for your project can be created with Sphinx in the docs directory. For more information, refer to the <a href="http://sphinx-doc.org/">Sphinx documentation</a>.</p>
+        <p>You can check you PEP8 compliance by typing </p>
 
-<h4>
-<a name="using-the-flask-script-file-to-run-the-development-server" class="anchor" href="#using-the-flask-script-file-to-run-the-development-server"><span class="octicon octicon-link"></span></a>Using The Manage.py File</h4>
+        <pre><code>$ make lint
+        </code></pre>
 
-<p>Simply type</p>
+        <p>Documentation for your project can be created with Sphinx in the docs directory. For more information, refer to the <a href="http://sphinx-doc.org/">Sphinx documentation</a>.</p>
 
-<pre><code>./manage.py
-</code></pre>
+        <h4><a name="using-the-flask-script-file-to-run-the-development-server" class="anchor" href="#using-the-flask-script-file-to-run-the-development-server"><span class="octicon octicon-link"></span></a>Using The Manage.py File</h4>
 
-<p>and you will get a list of commands that you can use to manage the project. For example, to run the server, use </p>
+        <p>Simply type</p>
 
-<pre><code>./manage.py server 
-</code></pre>
+        <pre><code>./manage.py
+        </code></pre>
 
-<p>and if the installation when well, you should have a working server on http://localhost:5000</p>
+        <p>and you will get a list of commands that you can use to manage the project. For example, to run the server, use </p>
 
-<p>This management script was created with Flask-Script and is fairly easy to add your own commands, simply refer to their <a href="http://flask-script.readthedocs.org/en/latest/">docs</a>.</p>
+        <pre><code>./manage.py server 
+        </code></pre>
 
-<h4>
-<a name="the-application-structure" class="anchor" href="#the-application-structure"><span class="octicon octicon-link"></span></a>The Application Structure</h4>
+        <p>and if the installation when well, you should have a working server on http://localhost:5000</p>
 
-<p>Before going to far into this, you should at least skim the documentation of all of the thrid party libraries listed above so you have a better understanding of what is going on here.</p>
+        <p>This management script was created with Flask-Script and is fairly easy to add your own commands, simply refer to their <a href="http://flask-script.readthedocs.org/en/latest/">docs</a>.</p>
 
-<p>The flask application itself lives in the appname directory. Obviously, you should change this to the name of your application. Once you do though, you must go through and fix all of the imports where it uses the appname name. The easiest way to find them all is to type</p>
+        <h4><a name="the-application-structure" class="anchor" href="#the-application-structure"><span class="octicon octicon-link"></span></a>The Application Structure</h4>
 
-<pre><code>grep -R appname *
-</code></pre>
+        <p>Before going to far into this, you should at least skim the documentation of all of the thrid party libraries listed above so you have a better understanding of what is going on here.</p>
 
-<p>To make things organized, this project is in a pseudo MVC setup. With the controllers as flask blueprints, the models as SQLAlchemy models, and the views as the templates.</p>
+        <p>The flask application itself lives in the appname directory. Obviously, you should change this to the name of your application. Once you do though, you must go through and fix all of the imports where it uses the appname name. The easiest way to find them all is to type</p>
 
-<p>The main logic of the application is in the __init__.py. This is done so that the application is treated as a module by python which helps later when importing things. Here, we setup all of the third party libs and load in our configuration in an application factory, which is a function that creates and returns an instance of our application. This is done for easier testing purposes and modularity. The function create_app takes the path of the config file that you want to use and the type of environment that the server is running in. Most of the library initialization is self explanatory, but let me explain the configuration loading. In your shell's startup script (if you are using bash, its .bash_profile), you must enter this line:</p>
+        <pre><code>grep -R appname *
+        </code></pre>
 
-<pre><code>APPNAME_ENV = 'dev' 
-</code></pre>
+        <p>To make things organized, this project is in a pseudo MVC setup. With the controllers as flask blueprints, the models as SQLAlchemy models, and the views as the templates.</p>
 
-<p>or</p>
+        <p>The main logic of the application is in the __init__.py. This is done so that the application is treated as a module by python which helps later when importing things. Here, we setup all of the third party libs and load in our configuration in an application factory, which is a function that creates and returns an instance of our application. This is done for easier testing purposes and modularity. The function create_app takes the path of the config file that you want to use and the type of environment that the server is running in. Most of the library initialization is self explanatory, but let me explain the configuration loading. In your shell's startup script (if you are using bash, its .bash_profile), you must enter this line:</p>
 
-<pre><code>APPNAME_ENV = 'prod'
-</code></pre>
+        <pre><code>APPNAME_ENV = 'dev' 
+        </code></pre>
 
-<p>This tells the application which class, located in settings.py, to load in for the configuration. To see the different configs, take a look at the settings.py file. This is explained more in depth in the flask docs <a href="http://flask.pocoo.org/docs/config/#development-production">here</a>.</p>
+        <p>or</p>
 
-<p>After everything is initialized, the application loads in the main blueprint from the controllers file. If you don't know how flask blueprints work, check out <a href="http://flask.pocoo.org/docs/blueprints/">this</a> page in the flask documentation. The controllers/main.py file is where we have our current example logic, with a homepage and a example WTForms page. </p>
+        <pre><code>APPNAME_ENV = 'prod'
+        </code></pre>
 
-<p>WTForm classes are held in a separate file called forms.py and imported when needed.</p>
+        <p>This tells the application which class, located in settings.py, to load in for the configuration. To see the different configs, take a look at the settings.py file. This is explained more in depth in the flask docs <a href="http://flask.pocoo.org/docs/config/#development-production">here</a>.</p>
 
-<p>The templates are stored in the templates directory for the main blueprint. It is encouraged, but not required, that every new blueprint has its own templates directory inside of the main templates directory. Blueprints have a special variable to make this easy:</p>
+        <p>After everything is initialized, the application loads in the main blueprint from the controllers file. If you don't know how flask blueprints work, check out <a href="http://flask.pocoo.org/docs/blueprints/">this</a> page in the flask documentation. The controllers/main.py file is where we have our current example logic, with a homepage and a example WTForms page. </p>
 
-<pre><code>simple_page = Blueprint('simple_page', __name__, template_folder='simple')
-</code></pre>
+        <p>WTForm classes are held in a separate file called forms.py and imported when needed.</p>
 
-<p>and now when you have a function </p>
+        <p>The templates are stored in the templates directory for the main blueprint. It is encouraged, but not required, that every new blueprint has its own templates directory inside of the main templates directory. Blueprints have a special variable to make this easy:</p>
 
-<pre><code>@simple_page.route('/')
-def function()
-    return render_template('index.html')
-</code></pre>
+        <pre><code>simple_page = Blueprint('simple_page', __name__, template_folder='simple')
+        </code></pre>
 
-<p>it will return simple/index.html</p>
+        <p>and now when you have a function </p>
 
-<p>As you can see, the example code uses bootstrap. You are quite able to rip it out and use your own framework if you wish. </p>
+        <pre><code>@simple_page.route('/')
+        def function()
+            return render_template('index.html')
+        </code></pre>
 
-<p>All of the templates inherit from the base.html template to avoid repeating yourself and to avoid discrepancies between pages. Also, as you can see in base.html, it is encouraged that you make use of Flask-Assets when ever possible. Using this to your advantage will dramatically speed up load times.</p>
+        <p>it will return simple/index.html</p>
 
-<p>The models in this application are SQLAlchemy models in the models.py file, an example User model has been provided.</p>
+        <p>As you can see, the example code uses bootstrap. You are quite able to rip it out and use your own framework if you wish. </p>
 
-<p>If you are still confused about how this project is structured, I encourage you to read the blog posts listed at the top of the README file.</p>
+        <p>All of the templates inherit from the base.html template to avoid repeating yourself and to avoid discrepancies between pages. Also, as you can see in base.html, it is encouraged that you make use of Flask-Assets when ever possible. Using this to your advantage will dramatically speed up load times.</p>
 
-<p>Need help implementing some common features like user login or ajax? For a full blown tutorial covering almost every flask topic that you can think of, I recommend <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">The Flask Mega-Tutorial</a>.</p>
+        <p>The models in this application are SQLAlchemy models in the models.py file, an example User model has been provided.</p>
 
-<h4>
-<a name="testing" class="anchor" href="#testing"><span class="octicon octicon-link"></span></a>Testing</h4>
+        <p>If you are still confused about how this project is structured, I encourage you to read the blog posts listed at the top of the README file.</p>
 
-<p>To run your tests use the provided make command:</p>
+        <p>Need help implementing some common features like user login or ajax? For a full blown tutorial covering almost every flask topic that you can think of, I recommend <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">The Flask Mega-Tutorial</a>.</p>
 
-<pre><code>make test
-</code></pre>
+        <h4><a name="testing" class="anchor" href="#testing"><span class="octicon octicon-link"></span></a>Testing</h4>
 
-<p>The tests are located in the tests/ directory, and the tests are run with py.test. Nothing is too fancy in the test_config.py tests, but in the rest we see some special initialization with the database, this is due to flask not actually running and Flask-SQLAlechmy not being initialized properly, so we pass in the app using </p>
+        <p>To run your tests use the provided make command:</p>
 
-<pre><code>db.app = app
-</code></pre>
+        <pre><code>make test
+        </code></pre>
 
-<p>Also, we see here the use of app.test_client(), which means we can use functions to send GET and POST requests from our tests. This is how we test our forms and if the urls are returning correctly.</p>
+        <p>The tests are located in the tests/ directory, and the tests are run with py.test. Nothing is too fancy in the test_config.py tests, but in the rest we see some special initialization with the database, this is due to flask not actually running and Flask-SQLAlechmy not being initialized properly, so we pass in the app using </p>
 
-<p>Sending post and get requests is all well and good, but if you want to get really advanced, check out <a href="http://webtest.pythonpaste.org/en/latest/">webtest</a>.</p>
+        <pre><code>db.app = app
+        </code></pre>
 
-<h2>
-<a name="production" class="anchor" href="#production"><span class="octicon octicon-link"></span></a>Production</h2>
+        <p>Also, we see here the use of app.test_client(), which means we can use functions to send GET and POST requests from our tests. This is how we test our forms and if the urls are returning correctly.</p>
 
-<p>First off, it is very, very important that if you ever open source a flask application based upon this, to not include the settings.py file in your repo. Obviously, your database password is in it, but your secret key as well, which is used to cryptographically sign all of flask's session data.</p>
+        <p>Sending post and get requests is all well and good, but if you want to get really advanced, check out <a href="http://webtest.pythonpaste.org/en/latest/">webtest</a>.</p>
 
-<p>When going into production there are several things that you should do. First, look at your options for deploying on an actual server <a href="http://flask.pocoo.org/docs/deploying/">here</a>. </p>
+        <h2><a name="production" class="anchor" href="#production"><span class="octicon octicon-link"></span></a>Production</h2>
 
-<p>Using the flask development server is NOT recommended for production for several good reasons, including the ability for anyone who can touch it to run arbitrary python on the server. </p>
+        <p>First off, it is very, very important that if you ever open source a flask application based upon this, to not include the settings.py file in your repo. Obviously, your database password is in it, but your secret key as well, which is used to cryptographically sign all of flask's session data.</p>
 
-<p>Deploying to the server manually is tedious, so you might want to look into deploying with <a href="http://flask.pocoo.org/docs/patterns/fabric/">fabric</a> or <a href="http://flask.pocoo.org/docs/patterns/distribute/#distribute-deployment">distribute</a>. </p>
+        <p>When going into production there are several things that you should do. First, look at your options for deploying on an actual server <a href="http://flask.pocoo.org/docs/deploying/">here</a>. </p>
 
-<p>This isn't php, so logging errors doesn't come out of the box, <a href="http://flask.pocoo.org/docs/errorhandling/">here</a> is a great resource on the subject. </p>
+        <p>Using the flask development server is NOT recommended for production for several good reasons, including the ability for anyone who can touch it to run arbitrary python on the server. </p>
 
-<p>Also, there are several awesome plug-ins available for flask that add in functionality that you might need for your application, they can be found on the flask website <a href="http://flask.pocoo.org/extensions/">here</a>, or just searching "flask" on github.</p>
+        <p>Deploying to the server manually is tedious, so you might want to look into deploying with <a href="http://flask.pocoo.org/docs/patterns/fabric/">fabric</a> or <a href="http://flask.pocoo.org/docs/patterns/distribute/#distribute-deployment">distribute</a>. </p>
 
-<h2>
-<a name="licenses" class="anchor" href="#licenses"><span class="octicon octicon-link"></span></a>Licenses</h2>
+        <p>This isn't php, so logging errors doesn't come out of the box, <a href="http://flask.pocoo.org/docs/errorhandling/">here</a> is a great resource on the subject. </p>
 
-<p>The original bootstrapy project and the added code from this project are licensed under the BSD license.</p>
+        <p>Also, there are several awesome plug-ins available for flask that add in functionality that you might need for your application, they can be found on the flask website <a href="http://flask.pocoo.org/extensions/">here</a>, or just searching "flask" on github.</p>
+
+        <h2><a name="licenses" class="anchor" href="#licenses"><span class="octicon octicon-link"></span></a>Licenses</h2>
+
+        <p>The original bootstrapy project and the added code from this project are licensed under the BSD license.</p>
       </section>
 
     </div>
