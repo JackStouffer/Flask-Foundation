@@ -11,3 +11,7 @@ Best practices were learned from
 * [Creating Websites With Flask](http://maximebf.com/blog/2012/10/building-websites-in-python-with-flask/)
 * [Getting Bigger With Flask](http://maximebf.com/blog/2012/11/getting-bigger-with-flask/)
 * [Larger Applications With Flask](http://flask.pocoo.org/docs/patterns/packages/).
+
+##Are You Using Flask Foundation?
+
+Send me an email with proof and have your site featured here!
