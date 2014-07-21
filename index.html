@@ -75,6 +75,9 @@
             <a href="http://sphinx-doc.org/">Sphinx</a>: Helps you create some awesome docs for your users, or your internal team
           </li>
           <li>
+            <a href="http://flask-login.readthedocs.org/en/latest/">Flask-Login</a>: A simple login system
+          </li>
+          <li>
             <a href="http://flask-assets.readthedocs.org/en/latest/">Flask-Assets</a>: A library that packages css and js files and applies filters to them like the closure complier
           </li>
           <li>
@@ -117,30 +120,23 @@
         deps        install dependencies
         clean       remove unwanted stuff
         lint        check style with flake8
-        test        run all your tests using py.test
-        </code></pre>
+        test        run all your tests using py.test</code></pre>
 
         <p>If you are ever confused about what each command does, take a look at the makefile, it is very straight forward.</p>
 
         <p>So to setup the dev environment, let's type </p>
 
-        <pre>
-        <code>
-        $ make env
-        </code>
-        </pre>
+        <pre><code>$ make env</code></pre>
 
         <p>This will install virtualenv if you don't have it and setup a local python instance. Then it installs all of the needed libs from the requirements.txt file. Now we have our setup with all of the needed 3rd party libs.</p>
 
         <p>Tests are done through py.test, and reside in the tests directory. To run the tests, just type </p>
 
-        <pre><code>$ make test
-        </code></pre>
+        <pre><code>$ make test</code></pre>
 
         <p>You can check you PEP8 compliance by typing </p>
 
-        <pre><code>$ make lint
-        </code></pre>
+        <pre><code>$ make lint</code></pre>
 
         <p>Documentation for your project can be created with Sphinx in the docs directory. For more information, refer to the <a href="http://sphinx-doc.org/">Sphinx documentation</a>.</p>
 
@@ -148,13 +144,11 @@
 
         <p>Simply type</p>
 
-        <pre><code>./manage.py
-        </code></pre>
+        <pre><code>./manage.py</code></pre>
 
         <p>and you will get a list of commands that you can use to manage the project. For example, to run the server, use </p>
 
-        <pre><code>./manage.py server 
-        </code></pre>
+        <pre><code>./manage.py server</code></pre>
 
         <p>and if the installation when well, you should have a working server on http://localhost:5000</p>
 
@@ -166,20 +160,17 @@
 
         <p>The flask application itself lives in the appname directory. Obviously, you should change this to the name of your application. Once you do though, you must go through and fix all of the imports where it uses the appname name. The easiest way to find them all is to type</p>
 
-        <pre><code>grep -R appname *
-        </code></pre>
+        <pre><code>grep -R appname *</code></pre>
 
         <p>To make things organized, this project is in a pseudo MVC setup. With the controllers as flask blueprints, the models as SQLAlchemy models, and the views as the templates.</p>
 
         <p>The main logic of the application is in the __init__.py. This is done so that the application is treated as a module by python which helps later when importing things. Here, we setup all of the third party libs and load in our configuration in an application factory, which is a function that creates and returns an instance of our application. This is done for easier testing purposes and modularity. The function create_app takes the path of the config file that you want to use and the type of environment that the server is running in. Most of the library initialization is self explanatory, but let me explain the configuration loading. In your shell's startup script (if you are using bash, its .bash_profile), you must enter this line:</p>
 
-        <pre><code>APPNAME_ENV = 'dev' 
-        </code></pre>
+        <pre><code>APPNAME_ENV = 'dev'</code></pre>
 
         <p>or</p>
 
-        <pre><code>APPNAME_ENV = 'prod'
-        </code></pre>
+        <pre><code>APPNAME_ENV = 'prod'</code></pre>
 
         <p>This tells the application which class, located in settings.py, to load in for the configuration. To see the different configs, take a look at the settings.py file. This is explained more in depth in the flask docs <a href="http://flask.pocoo.org/docs/config/#development-production">here</a>.</p>
 
@@ -189,15 +180,13 @@
 
         <p>The templates are stored in the templates directory for the main blueprint. It is encouraged, but not required, that every new blueprint has its own templates directory inside of the main templates directory. Blueprints have a special variable to make this easy:</p>
 
-        <pre><code>simple_page = Blueprint('simple_page', __name__, template_folder='simple')
-        </code></pre>
+        <pre><code>simple_page = Blueprint('simple_page', __name__, template_folder='simple')</code></pre>
 
         <p>and now when you have a function </p>
 
         <pre><code>@simple_page.route('/')
         def function()
-            return render_template('index.html')
-        </code></pre>
+            return render_template('index.html')</code></pre>
 
         <p>it will return simple/index.html</p>
 
@@ -215,13 +204,11 @@
 
         <p>To run your tests use the provided make command:</p>
 
-        <pre><code>make test
-        </code></pre>
+        <pre><code>make test</code></pre>
 
         <p>The tests are located in the tests/ directory, and the tests are run with py.test. Nothing is too fancy in the test_config.py tests, but in the rest we see some special initialization with the database, this is due to flask not actually running and Flask-SQLAlechmy not being initialized properly, so we pass in the app using </p>
 
-        <pre><code>db.app = app
-        </code></pre>
+        <pre><code>db.app = app</code></pre>
 
         <p>Also, we see here the use of app.test_client(), which means we can use functions to send GET and POST requests from our tests. This is how we test our forms and if the urls are returning correctly.</p>
 
