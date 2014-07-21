@@ -2,18 +2,17 @@
 import os
 
 from flask import Flask
-from flask_assets import Environment
 from webassets.loaders import PythonLoader as PythonAssetsLoader
-from flask.ext.cache import Cache
 
 from appname import assets
 from appname.models import db
 
-# Setup flask cache
-cache = Cache()
-
-# init flask assets
-assets_env = Environment()
+from appname.extensions import (
+    cache,
+    assets_env,
+    debug_toolbar,
+    login_manager
+)
 
 
 def create_app(object_name, env="prod"):
@@ -36,8 +35,12 @@ def create_app(object_name, env="prod"):
     #init the cache
     cache.init_app(app)
 
+    debug_toolbar.init_app(app)
+
     #init SQLAlchemy
     db.init_app(app)
+
+    login_manager.init_app(app)
 
     # Import and register the different asset bundles
     assets_env.init_app(app)

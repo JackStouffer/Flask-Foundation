@@ -20,7 +20,7 @@ def make_shell_context():
         in the context of the app
     """
 
-    return dict(app=app, User=User)
+    return dict(app=app, db=db, User=User)
 
 
 @manager.command

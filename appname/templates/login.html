@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Flask Login Example{% endblock %}
+
+{% block body %}
+    <h2>Flask Login Example</h2>
+    <p>This login example does not use any sort of password encryption and is only provided as a very good starting point.</p>
+    
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form role="form" action="{{ url_for('.login') }}" method="post">
+                {{ form.csrf_token }}
+                
+                <div class="form-group">
+                    {{ form.username.label }}
+                    {{ form.username(class_="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label }}
+                    {{ form.password(class_="form-control") }}
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+{% endblock %}
