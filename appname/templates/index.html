@@ -1,8 +1,25 @@
 {% extends "base.html" %}
 
-{% block title %}Starter Template{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block body %}
-    <h1 class="tera text-center">Starter Template</h1>
-    <p class="lead text-center">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+    <div class="jumbotron">
+        <h1>Flask Foundation</h1>
+        <p>The unopinionated flask framework</p>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Bootstrap</h3>
+            <p>Bootstrap is the most popular css framework on the internet and handles the hard parts of css so you don't have to.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>Flask Extensions</h3>
+            <p>Several flask extensions are included to handle the common tasks of web developers. The included extensions are flask-login, flask-assets, flask-WTF, flask-cache, flask-script, and flask-sqlalchemy.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>Management Scripts</h3>
+            <p>Using the Makefile, you can easily setup your development environment with a few simple commands. With the power of flask-script you can create your own commands with the flask app context setup for you.</p>
+        </div>
+    </div>
 {% endblock %}

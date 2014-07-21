@@ -8,6 +8,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
         {% block meta %}
             <meta name="description" content="">
             <meta name="author" content="">
@@ -16,6 +17,7 @@
         {% assets "common_css" %}
             <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
         {% endassets %}
+
         {% block css %}
         {% endblock %}
 
@@ -30,12 +32,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Appname</a>
+                <a class="navbar-brand" href="#">Flask Foundation</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url_for('.home') }}">Home</a></li>
-                    <li><a href="{{ url_for('.wtform') }}">WTForms Example</a></li>
+
+                    {% if not current_user.is_authenticated() %}
+                        <li><a href="{{ url_for('.login') }}">Login</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('.logout') }}">Logout</a></li>
+                    {% endif %}
+
+                    <li><a href="{{ url_for('.restricted') }}">Login Restricted Page</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -44,7 +53,7 @@
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     {% for category, message in messages %}
-                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                        <div class="alert alert-{{ category }}" role="alert">{{ message }}</div>
                     {% endfor %}
                 {% endif %}
             {% endwith %}
@@ -52,6 +61,7 @@
             {% block body %}
             {% endblock %}
         </div>
+
         {% assets "common_js" %}
             <script type="text/javascript" src="{{ ASSET_URL }}"></script>
         {% endassets %}
