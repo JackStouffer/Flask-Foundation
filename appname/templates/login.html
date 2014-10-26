@@ -4,14 +4,13 @@
 
 {% block body %}
     <h2>Flask Login Example</h2>
-    <p>This login example does not use any sort of password encryption and is only provided as a very good starting point.</p>
-    
+
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <form role="form" action="{{ url_for('.login') }}" method="post">
                 {{ form.csrf_token }}
-                
+
                 <div class="form-group">
                     {{ form.username.label }}
                     {{ form.username(class_="form-control") }}

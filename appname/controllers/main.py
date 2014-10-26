@@ -18,11 +18,9 @@ def home():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        # For demonstration purposes the password in stored insecurely
-        user = User.query.filter_by(username=form.username.data,
-                                    password=form.password.data).first()
+        user = User.query.filter_by(username=form.username.data).first()
 
-        if user:
+        if user and user.check_password(form.password.data):
             login_user(user)
 
             flash("Logged in successfully.", "success")
