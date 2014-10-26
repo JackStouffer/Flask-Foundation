@@ -19,7 +19,7 @@ class TestModels:
         admin = User('admin', 'supersafepassword')
 
         assert admin.username == 'admin'
-        assert admin.password == 'supersafepassword'
+        assert admin.check_password('supersafepassword')
 
         db.session.add(admin)
         db.session.commit()
