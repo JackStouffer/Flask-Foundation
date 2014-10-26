@@ -1,5 +1,11 @@
 #Changelog
 
+##1.2
+* Added Flask-Login 
+* Added Modernizr
+* updated css and js libraries
+* removed typelate
+
 ##1.1
 * switched to py.test for tests
 * form tests
