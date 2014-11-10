@@ -2,6 +2,7 @@
 import os
 
 from flask.ext.script import Manager, Server
+from flask.ext.script.commands import ShowUrls, Clean
 from appname import create_app
 from appname.models import db, User
 
@@ -12,6 +13,8 @@ app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
 
 manager = Manager(app)
 manager.add_command("server", Server())
+manager.add_command("show-urls",ShowUrls())
+manager.add_command("clean",Clean())
 
 
 @manager.shell
