@@ -7,10 +7,14 @@ Flask Foundation is a solid foundation for flask applications, built with best p
 
 Built off of the [bootstrapy project](https://github.com/kirang89/bootstrapy)
 
-Best practices were learned from
+Best practices were learned from:
 * [Creating Websites With Flask](http://maximebf.com/blog/2012/10/building-websites-in-python-with-flask/)
 * [Getting Bigger With Flask](http://maximebf.com/blog/2012/11/getting-bigger-with-flask/)
 * [Larger Applications With Flask](http://flask.pocoo.org/docs/patterns/packages/).
+
+## License
+
+Flask-Foundation is licensed under the BSD license. For more info see LICENSE.md
 
 ##Are You Using Flask Foundation?
 
