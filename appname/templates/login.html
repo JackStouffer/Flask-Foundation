@@ -3,13 +3,13 @@
 {% block title %}Flask Login Example{% endblock %}
 
 {% block body %}
-    <h2>Flask Login Example</h2>
+    <h1 class="text-center">Flask Login Example</h1>
 
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <form role="form" action="{{ url_for('.login') }}" method="post">
-                {{ form.csrf_token }}
+                {{ form.hidden_tag() }}
 
                 <div class="form-group">
                     {{ form.username.label }}

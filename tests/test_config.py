@@ -5,6 +5,8 @@ from appname import create_app
 
 class TestConfig:
     def test_dev_config(self):
+        """ Tests if the development config loads correctly """
+
         app = create_app('appname.settings.DevConfig', env='dev')
 
         assert app.config['DEBUG'] is True
@@ -13,6 +15,8 @@ class TestConfig:
         assert app.config['CACHE_TYPE'] == 'null'
 
     def test_prod_config(self):
+        """ Tests if the production config loads correctly """
+
         app = create_app('appname.settings.ProdConfig', env='prod')
 
         assert app.config['SQLALCHEMY_DATABASE_URI'] == 'sqlite:///../database.db'

@@ -3,7 +3,7 @@
 
 Documentation is located at [https://jackstouffer.github.io/Flask-Foundation/](https://jackstouffer.github.io/Flask-Foundation/)
 
-Flask Foundation is a solid foundation for flask applications, built with best practices, that you can easily construct your website/webapp off of.
+Flask Foundation is a solid foundation for flask applications, built with best practices, that you can easily construct your website/webapp off of. Flask Foundation is different from most Flask frameworks as it does not assume anything about your development or production environments. Flask Foundation is platform agnostic in this respect.
 
 Built off of the [bootstrapy project](https://github.com/kirang89/bootstrapy)
 
@@ -15,7 +15,3 @@ Best practices were learned from:
 ## License
 
 Flask-Foundation is licensed under the BSD license. For more info see LICENSE.md
-
-##Are You Using Flask Foundation?
-
-Send me an email with proof and have your site featured here!

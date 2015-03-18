@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 import os
 
 from flask.ext.script import Manager, Server
@@ -13,8 +14,8 @@ app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
 
 manager = Manager(app)
 manager.add_command("server", Server())
-manager.add_command("show-urls",ShowUrls())
-manager.add_command("clean",Clean())
+manager.add_command("show-urls", ShowUrls())
+manager.add_command("clean", Clean())
 
 
 @manager.shell
@@ -29,7 +30,7 @@ def make_shell_context():
 @manager.command
 def createdb():
     """ Creates a database with all of the tables defined in
-        your Alchemy models
+        your SQLAlchemy models
     """
 
     db.create_all()

@@ -1,28 +1,31 @@
 #! ../env/bin/python
 # -*- coding: utf-8 -*-
-from appname import create_app
-from appname.models import db, User
+
+import pytest
+
+create_user = True
 
 
-class TestForm:
-    def setup(self):
-        app = create_app('appname.settings.DevConfig', env='dev')
-        self.app = app.test_client()
-        db.app = app
-        db.create_all()
-        admin = User('admin', 'supersafepassword')
-        db.session.add(admin)
-        db.session.commit()
+@pytest.mark.usefixtures("testapp")
+class TestLogin:
+    def test_login(self, testapp):
+        """ Tests if the login form functions """
 
-    def teardown(self):
-        db.session.remove()
-        db.drop_all()
-
-    def test_user_login(self):
-        rv = self.app.post('/login', data=dict(
+        rv = testapp.post('/login', data=dict(
             username='admin',
             password="supersafepassword"
         ), follow_redirects=True)
 
         assert rv.status_code == 200
         assert 'Logged in successfully.' in rv.data
+
+    def test_login_fail(self, testapp):
+        """ Tests if the login form fails correctly """
+
+        rv = testapp.post('/login', data=dict(
+            username='admin',
+            password=""
+        ), follow_redirects=True)
+
+        assert rv.status_code == 200
+        assert 'Login failed.' in rv.data

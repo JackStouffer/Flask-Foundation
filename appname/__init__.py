@@ -1,5 +1,4 @@
 #! ../env/bin/python
-import os
 
 from flask import Flask
 from webassets.loaders import PythonLoader as PythonAssetsLoader
@@ -32,12 +31,13 @@ def create_app(object_name, env="prod"):
     app.config.from_object(object_name)
     app.config['ENV'] = env
 
-    #init the cache
+    # initialize the cache
     cache.init_app(app)
 
+    # initialize the debug tool bar
     debug_toolbar.init_app(app)
 
-    #init SQLAlchemy
+    # initialize SQLAlchemy
     db.init_app(app)
 
     login_manager.init_app(app)
@@ -53,11 +53,3 @@ def create_app(object_name, env="prod"):
     app.register_blueprint(main)
 
     return app
-
-if __name__ == '__main__':
-    # Import the config for the proper environment using the
-    # shell var APPNAME_ENV
-    env = os.environ.get('APPNAME_ENV', 'prod')
-    app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
-
-    app.run()
