@@ -15,7 +15,7 @@ cssmin==0.2.0
 jsmin==2.1.1
 
 # Testing
-pytest==2.6.4
+pytest==2.7.0
 pytest-cov==1.8.1
 mccabe==0.3
 flake8==2.4.0
