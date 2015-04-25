@@ -17,7 +17,7 @@ class TestLogin:
         ), follow_redirects=True)
 
         assert rv.status_code == 200
-        assert 'Logged in successfully.' in rv.data
+        assert 'Logged in successfully.' in str(rv.data)
 
     def test_login_fail(self, testapp):
         """ Tests if the login form fails correctly """
@@ -28,4 +28,4 @@ class TestLogin:
         ), follow_redirects=True)
 
         assert rv.status_code == 200
-        assert 'Login failed.' in rv.data
+        assert 'Login failed.' in str(rv.data)

@@ -5,6 +5,7 @@ from webassets.loaders import PythonLoader as PythonAssetsLoader
 
 from appname import assets
 from appname.models import db
+from appname.controllers.main import main
 
 from appname.extensions import (
     cache,
@@ -45,11 +46,10 @@ def create_app(object_name, env="prod"):
     # Import and register the different asset bundles
     assets_env.init_app(app)
     assets_loader = PythonAssetsLoader(assets)
-    for name, bundle in assets_loader.load_bundles().iteritems():
+    for name, bundle in assets_loader.load_bundles().items():
         assets_env.register(name, bundle)
 
     # register our blueprints
-    from controllers.main import main
     app.register_blueprint(main)
 
     return app
