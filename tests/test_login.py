@@ -28,4 +28,4 @@ class TestLogin:
         ), follow_redirects=True)
 
         assert rv.status_code == 200
-        assert 'Login failed.' in str(rv.data)
+        assert 'Invalid username or password' in str(rv.data)

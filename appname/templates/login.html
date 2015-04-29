@@ -13,10 +13,20 @@
 
                 <div class="form-group">
                     {{ form.username.label }}
+                    {% if form.username.errors %}
+                        {% for e in form.username.errors %}
+                            <p class="help-block">{{ e }}</p>
+                        {% endfor %}
+                    {% endif %}
                     {{ form.username(class_="form-control") }}
                 </div>
                 <div class="form-group">
                     {{ form.password.label }}
+                    {% if form.password.errors %}
+                        {% for e in form.password.errors %}
+                            <p class="help-block">{{ e }}</p>
+                        {% endfor %}
+                    {% endif %}
                     {{ form.password(class_="form-control") }}
                 </div>
 
