@@ -5,6 +5,7 @@ import os
 from flask.ext.script import Manager, Server
 from flask.ext.script.commands import ShowUrls, Clean
 from appname import create_app
+from appname.util import cli
 from appname.models import db, User
 
 # default to dev config because no one should use this in
@@ -32,8 +33,15 @@ def createdb():
     """ Creates a database with all of the tables defined in
         your SQLAlchemy models
     """
-
     db.create_all()
+    cli.create_user(db, User)
+
+
+@manager.command
+def add_user():
+    """ Creates a new user """
+    cli.create_user(db, User)
+
 
 if __name__ == "__main__":
     manager.run()
