@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 
 import os
+import sys
+
+from getpass import getpass
 
 from flask.ext.script import Manager, Server
 from flask.ext.script.commands import ShowUrls, Clean
+
 from appname import create_app
-from appname.util import cli
 from appname.models import db, User
 
 # default to dev config because no one should use this in
@@ -34,13 +37,19 @@ def createdb():
         your SQLAlchemy models
     """
     db.create_all()
-    cli.create_user(db, User)
 
 
 @manager.command
 def add_user():
     """ Creates a new user """
-    cli.create_user(db, User)
+    username = raw_input("Username: ")
+    password = getpass()
+
+    if User.query.filter_by(username=username).count():
+        sys.exit("User by that name already exists")
+
+    db.session.add(User(username, password))
+    db.session.commit()
 
 
 if __name__ == "__main__":
