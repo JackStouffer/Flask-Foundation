@@ -17,3 +17,9 @@ Best practices were learned from:
 ## License
 
 Flask-Foundation is licensed under the BSD license. For more info see LICENSE.md
+
+# Want to learn more about Flask?
+
+I also wrote a book on Flask! You can preorder it [here](https://www.packtpub.com/web-development/mastering-flask).
+
+[![cover](https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B03929_MockupCover_Normal.jpg)](https://www.packtpub.com/web-development/mastering-flask)
