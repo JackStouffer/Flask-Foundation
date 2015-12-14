@@ -38,3 +38,5 @@ env*
 .webassets-cache
 .DS_Store
 *.sublime-*
+
+appname/static/public/*
