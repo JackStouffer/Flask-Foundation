@@ -7,12 +7,14 @@ class Config(object):
 
 
 class ProdConfig(Config):
+    ENV = 'prod'
     SQLALCHEMY_DATABASE_URI = 'sqlite:///../database.db'
 
     CACHE_TYPE = 'simple'
 
 
 class DevConfig(Config):
+    ENV = 'dev'
     DEBUG = True
     DEBUG_TB_INTERCEPT_REDIRECTS = False
 
@@ -23,6 +25,7 @@ class DevConfig(Config):
 
 
 class TestConfig(Config):
+    ENV = 'test'
     DEBUG = True
     DEBUG_TB_INTERCEPT_REDIRECTS = False
 
