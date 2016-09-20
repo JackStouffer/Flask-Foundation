@@ -5,6 +5,7 @@ Flask-Assets==0.11
 Flask-Cache==0.13.1
 Flask-DebugToolbar==0.10.0
 Flask-Login==0.3.2
+Flask-Migrate==1.1.0
 Flask-SQLAlchemy==2.1
 Flask-Script==2.0.5
 Flask-WTF==0.12
