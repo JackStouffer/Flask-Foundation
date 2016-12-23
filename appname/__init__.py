@@ -1,6 +1,7 @@
 #! ../env/bin/python
 
 from flask import Flask
+from flask.ext.bootstrap import Bootstrap
 from webassets.loaders import PythonLoader as PythonAssetsLoader
 
 from appname import assets
@@ -13,6 +14,8 @@ from appname.extensions import (
     debug_toolbar,
     login_manager
 )
+
+bootstrap = Bootstrap()
 
 
 def create_app(object_name):
