@@ -1,21 +1,21 @@
-Flask==0.10.1
+Flask==0.12
 
 # Flask Extensions
-Flask-Assets==0.10
+Flask-Assets==0.12
 Flask-Cache==0.13.1
 Flask-DebugToolbar==0.10.0
-Flask-Login==0.2.11
-Flask-SQLAlchemy==2.0
+Flask-Login==0.4.0
 Flask-Script==2.0.5
-Flask-WTF==0.11
+Flask-SQLAlchemy==2.1
+Flask-WTF==0.14
 
 # Other
 itsdangerous==0.24
 cssmin==0.2.0
-jsmin==2.1.1
+jsmin==2.2.1
 
 # Testing
-pytest==2.7.0
-pytest-cov==1.8.1
+pytest==3.0.5
+pytest-cov==2.4.0
 mccabe==0.3
 flake8==2.4.0

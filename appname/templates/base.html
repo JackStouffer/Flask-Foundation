@@ -38,7 +38,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url_for('.home') }}">Home</a></li>
 
-                    {% if not current_user.is_authenticated() %}
+                    {% if not current_user.is_authenticated %}
                         <li><a href="{{ url_for('.login') }}">Login</a></li>
                     {% else %}
                         <li><a href="{{ url_for('.logout') }}">Logout</a></li>
