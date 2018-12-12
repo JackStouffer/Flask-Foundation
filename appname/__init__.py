@@ -15,7 +15,7 @@ from appname.extensions import (
 )
 
 
-def create_app(object_name, env="prod"):
+def create_app(object_name):
     """
     An flask application factory, as explained here:
     http://flask.pocoo.org/docs/patterns/appfactories/
@@ -23,14 +23,11 @@ def create_app(object_name, env="prod"):
     Arguments:
         object_name: the python path of the config object,
                      e.g. appname.settings.ProdConfig
-
-        env: The name of the current environment, e.g. prod or dev
     """
 
     app = Flask(__name__)
 
     app.config.from_object(object_name)
-    app.config['ENV'] = env
 
     # initialize the cache
     cache.init_app(app)

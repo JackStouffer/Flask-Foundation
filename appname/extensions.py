@@ -1,6 +1,6 @@
-from flask.ext.cache import Cache
-from flask.ext.debugtoolbar import DebugToolbarExtension
-from flask.ext.login import LoginManager
+from flask_cache import Cache
+from flask_debugtoolbar import DebugToolbarExtension
+from flask_login import LoginManager
 from flask_assets import Environment
 
 from appname.models import User

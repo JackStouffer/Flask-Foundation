@@ -1,20 +1,16 @@
 #!/usr/bin/env python
 
 import os
-import sys
 
-from getpass import getpass
-
-from flask.ext.script import Manager, Server
-from flask.ext.script.commands import ShowUrls, Clean
-
+from flask_script import Manager, Server
+from flask_script.commands import ShowUrls, Clean
 from appname import create_app
 from appname.models import db, User
 
 # default to dev config because no one should use this in
 # production anyway
 env = os.environ.get('APPNAME_ENV', 'dev')
-app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+app = create_app('appname.settings.%sConfig' % env.capitalize())
 
 manager = Manager(app)
 manager.add_command("server", Server())
@@ -36,6 +32,7 @@ def createdb():
     """ Creates a database with all of the tables defined in
         your SQLAlchemy models
     """
+
     db.create_all()
 
 
