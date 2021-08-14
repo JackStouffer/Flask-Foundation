@@ -2,7 +2,7 @@ Flask==0.12
 
 # Flask Extensions
 Flask-Assets==0.12
-Flask-Cache==0.13.1
+Flask-Caching==1.10.1
 Flask-DebugToolbar==0.10.0
 Flask-Login==0.4.0
 Flask-Script==2.0.5
