@@ -3,8 +3,8 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-    <div class="jumbotron">
-        <h1>Flask Foundation</h1>
+    <div class="mb-5">
+        <h1 class="display-1">Flask Foundation</h1>
         <p>The unopinionated flask framework</p>
     </div>
 
@@ -14,33 +14,31 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
+    <div class="row justify-content-md-center">
+        <div class="col-lg-3 col-md-4 bg-light p-3 m-3">
             <h3>MVC Structure</h3>
             <p>While there are many other flask templates out there, far too many are either structured poorly or are tied down to a specific method of deployment, or both.</p>
             <p>So Flask Foundation has a best practices setup with blueprints and SQLAlchemy models that will allow you to grow cleanly</p>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-lg-3 col-md-4 bg-light p-3 m-3">
             <h3>Flask Extensions</h3>
-            <p>Several flask extensions are included to handle the common tasks of web developers. The included extensions are flask-login, flask-assets, flask-WTF, flask-cache, flask-script, and flask-sqlalchemy.</p>
+            <p>Several flask extensions are included to handle the common tasks of web developers. The included extensions are flask-login, flask-assets, flask-WTF, flask-caching, and flask-sqlalchemy.</p>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-lg-3 col-md-4 bg-light p-3 m-3">
             <h3>Management Scripts</h3>
             <p>Using the Makefile, you can easily setup your development environment with a few simple commands. With the power of flask-script you can create your own commands with the flask app context setup for you.</p>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-4">
+        <div class="col-lg-3 col-md-4 bg-light p-3 m-3">
             <h3>Tests</h3>
             <p>Example tests, built with py.test, are included in to demonstrate how to test a flask app.</p>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-lg-3 col-md-4 bg-light p-3 m-3">
             <h3>Common Libraries</h3>
-            <p>The CSS Library Bootstrap is included, along with the Javascript libraries modernizr and jQuery.</p>
+            <p>The Bootstrap and jQuery are included.</p>
         </div>
     </div>
 {% endblock %}

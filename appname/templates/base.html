@@ -25,37 +25,43 @@
     </head>
 
     <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="#">Flask Foundation</a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('.home') }}">Home</a></li>
-
-                    {% if not current_user.is_authenticated %}
-                        <li><a href="{{ url_for('.login') }}">Login</a></li>
-                    {% else %}
-                        <li><a href="{{ url_for('.logout') }}">Logout</a></li>
-                    {% endif %}
-
-                    <li><a href="{{ url_for('.restricted') }}">Login Restricted Page</a></li>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('.home') }}">Home</a><li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('.restricted') }}">Login Restricted Page</a>
+                    </li>
                 </ul>
-            </div><!--/.nav-collapse -->
-        </div>
+                <ul class="navbar-nav d-flex">
+                    {% if not current_user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('.login') }}">Login</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('.logout') }}">Logout</a>
+                        </li>
+                    {% endif %}
+                </form>
+                </div>
+            </div>
+        </nav>
 
         <div class="container">
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     {% for category, message in messages %}
-                        <div class="alert alert-{{ category }} alert-dismissible" role="alert">
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          {{ message }}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     {% endfor %}
                 {% endif %}
