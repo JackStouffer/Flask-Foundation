@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 import os
+import urllib
+
 import click
 from flask import current_app, url_for
 from flask.cli import FlaskGroup
@@ -32,7 +34,8 @@ def create_all():
 
 @cli.command()
 def show_urls():
-    import urllib
+    """ List all of the endpoints on the app and the supportted methods
+    """
     output = []
     for rule in current_app.url_map.iter_rules():
         options = {}
