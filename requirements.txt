@@ -5,17 +5,17 @@ Flask-Assets==2.0
 Flask-Caching==1.10.1
 Flask-DebugToolbar==0.11.0
 Flask-Login==0.5.0
-Flask-SQLAlchemy==2.1
+Flask-SQLAlchemy==2.5.1
 Flask-WTF==0.15.1
 
 # Other
-itsdangerous==0.24
+itsdangerous==2.0.1
 cssmin==0.2.0
 jsmin==2.2.2
 python-dotenv==0.19.0
 
 # Testing
-pytest==3.0.5
-pytest-cov==2.4.0
-mccabe==0.3
-flake8==2.4.0
+pytest==6.2.4
+pytest-cov==2.12.1
+mccabe==0.6.1
+flake8==3.9.2
