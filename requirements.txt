@@ -1,12 +1,12 @@
-Flask==0.12
+Flask==2.0.1
 
 # Flask Extensions
 Flask-Assets==0.12
 Flask-Caching==1.10.1
-Flask-DebugToolbar==0.10.0
+Flask-DebugToolbar==0.11.0
 Flask-Login==0.4.0
 Flask-SQLAlchemy==2.1
-Flask-WTF==0.14
+Flask-WTF==0.15.1
 
 # Other
 itsdangerous==0.24
