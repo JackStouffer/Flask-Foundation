@@ -1,39 +1,52 @@
 #!/usr/bin/env python
 
 import os
+import click
+from flask import current_app, url_for
+from flask.cli import FlaskGroup
 
-from flask_script import Manager, Server
-from flask_script.commands import ShowUrls, Clean
 from appname import create_app
-from appname.models import db, User
-
-# default to dev config because no one should use this in
-# production anyway
-env = os.environ.get('APPNAME_ENV', 'dev')
-app = create_app('appname.settings.%sConfig' % env.capitalize())
-
-manager = Manager(app)
-manager.add_command("server", Server())
-manager.add_command("show-urls", ShowUrls())
-manager.add_command("clean", Clean())
+from appname.models import db
 
 
-@manager.shell
-def make_shell_context():
-    """ Creates a python REPL with several default imports
-        in the context of the app
-    """
-
-    return dict(app=app, db=db, User=User)
+def create_app_with_config(*args):
+    # default to dev config because no one should use this in
+    # production anyway
+    env = os.environ.get('APPNAME_ENV', 'dev')
+    return create_app('appname.settings.%sConfig' % env.capitalize())
 
 
-@manager.command
-def createdb():
+@click.group(cls=FlaskGroup, create_app=create_app_with_config)
+def cli():
+    pass
+
+
+@cli.command()
+def create_all():
     """ Creates a database with all of the tables defined in
         your SQLAlchemy models
     """
 
     db.create_all()
 
+
+@cli.command()
+def show_urls():
+    import urllib
+    output = []
+    for rule in current_app.url_map.iter_rules():
+        options = {}
+        for arg in rule.arguments:
+            options[arg] = "<{0}>".format(arg)
+
+        methods = ','.join(rule.methods)
+        url = url_for(rule.endpoint, **options)
+        line = urllib.parse.unquote("{:45s} {:30s} {}".format(rule.endpoint, methods, url))
+        output.append(line)
+
+    for line in sorted(output):
+        print(line)
+
+
 if __name__ == "__main__":
-    manager.run()
+    cli()

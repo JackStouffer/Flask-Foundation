@@ -4,6 +4,7 @@ db_file = tempfile.NamedTemporaryFile()
 
 class Config(object):
     SECRET_KEY = 'REPLACE ME'
+    SERVER_NAME = 'appname'
 
 
 class ProdConfig(Config):

@@ -1,6 +1,8 @@
 #! ../env/bin/python
 
-from flask import Flask
+import click
+from flask import Flask, current_app, url_for
+from flask.cli import with_appcontext
 from webassets.loaders import PythonLoader as PythonAssetsLoader
 
 from appname import assets
